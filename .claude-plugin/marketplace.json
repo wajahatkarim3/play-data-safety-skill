@@ -1,0 +1,15 @@
+{
+  "name": "play-data-safety",
+  "description": "Agent skill that fills Google Play's Data safety form from an Android app's real code.",
+  "owner": {
+    "name": "Wajahat Karim",
+    "url": "https://github.com/wajahatkarim3"
+  },
+  "plugins": [
+    {
+      "name": "play-data-safety",
+      "source": "./",
+      "description": "Fill Google Play's Data safety form from your Android app's real code and SDKs, and generate the CSV Play Console imports."
+    }
+  ]
+}

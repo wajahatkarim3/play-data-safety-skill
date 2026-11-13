@@ -1,0 +1,11 @@
+{
+  "name": "play-data-safety",
+  "description": "Fill Google Play's Data safety form from your Android app's real code and SDKs, and generate the CSV Play Console imports.",
+  "version": "1.0.0",
+  "author": { "name": "Wajahat Karim", "url": "https://github.com/wajahatkarim3" },
+  "homepage": "https://github.com/wajahatkarim3/play-data-safety-skill",
+  "repository": "https://github.com/wajahatkarim3/play-data-safety-skill",
+  "license": "MIT",
+  "keywords": ["android", "google-play", "data-safety", "privacy"],
+  "commands": ["./commands/claude/data-safety.md"]
+}

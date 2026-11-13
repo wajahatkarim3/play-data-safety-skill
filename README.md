@@ -1,5 +1,5 @@
 <h1 align="center">🛡️ Play Data Safety</h1>
-<h4 align="center">Fill Google Play's Data safety form from your Android app's real code, not from memory.<br/>An agent skill and <code>/data-safety</code> command for Claude Code, Gemini CLI, Codex, Cursor, OpenCode and Antigravity.</h4>
+<h4 align="center">Fill Google Play's Data safety form from your Android app's real code, not from memory.<br/>An agent skill for Claude Code, Gemini CLI, Codex, Cursor, OpenCode and Antigravity.</h4>
 <div align="center"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fwajahatkarim3%2Fplay-data-safety-skill&text=Fill%20Google%20Play%27s%20Data%20safety%20form%20from%20your%20Android%20app%27s%20real%20code%2C%20not%20from%20memory.%20Free%20agent%20skill%20for%20Claude%20Code%2C%20Gemini%20CLI%2C%20Codex%20and%20Cursor&hashtags=android%2Cgoogleplay%2Cai%2Copensource">
         <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"/>
     </a> <a href="https://twitter.com/WajahatKarim">
@@ -56,24 +56,43 @@ until a new SDK makes it wrong and Play rejects an update.
 
 ## 💻 Installation
 
-Clone once, then install into your Android project (or `--global` for all projects):
+Run this in your Android project:
+
+```bash
+npx skills add wajahatkarim3/play-data-safety-skill
+```
+
+That's it. It finds the AI coding agents you use (Claude Code, Gemini CLI, Codex, Cursor, OpenCode,
+Antigravity and more) and installs the skill for each one. Add `-g` to install it once for all your
+projects. You only need Node.js for this one command; the skill itself runs on the JDK.
+
+<details>
+<summary><b>Other ways to install</b></summary>
+<br/>
+
+**Claude Code plugin** (adds the `/data-safety` command too):
+
+```
+/plugin install play-data-safety --marketplace wajahatkarim3/play-data-safety-skill
+```
+
+**Gemini CLI:**
+
+```bash
+gemini skills install https://github.com/wajahatkarim3/play-data-safety-skill.git --path skills/play-data-safety
+```
+
+Agent Skills are still experimental in Gemini CLI, so you may need to enable them in its settings.
+
+**Manually**, which also adds a `/data-safety` command for every agent:
 
 ```bash
 git clone https://github.com/wajahatkarim3/play-data-safety-skill
 cd your-android-app
-/path/to/play-data-safety-skill/install.sh                 # every supported agent
-/path/to/play-data-safety-skill/install.sh --agent gemini  # or just one
-/path/to/play-data-safety-skill/install.sh --global        # into your home folder
+/path/to/play-data-safety-skill/install.sh            # or --agent gemini, --global
 ```
 
-| Agent | Skill goes to | Command |
-|---|---|---|
-| Claude Code | `.claude/skills/` | `/data-safety` |
-| Gemini CLI | `.gemini/skills/` (skills are experimental; enable in settings) | `/data-safety` |
-| Codex | `.codex/skills/` | `$play-data-safety` · `/prompts:data-safety` with `--global` |
-| Cursor | `.agents/skills/` | `/data-safety` |
-| OpenCode | `.opencode/skills/` | `/data-safety` |
-| Antigravity | `.agents/skills/` | `/data-safety` workflow |
+</details>
 
 <br/>
 
@@ -83,7 +102,8 @@ In your Android project, ask your agent:
 
 > Fill my Play data safety form
 
-or run `/data-safety`. The agent will:
+Your agent picks up the skill from that request. You can also call it directly: `/play-data-safety`
+in Claude Code, or `/data-safety` if you installed the plugin or used `install.sh`. The agent will:
 
 1. **Scan** the project: every library (including transitive ones, via `./gradlew dependencies`),
    every permission in your manifests, and code that touches location, contacts, camera, audio,
