@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; overflow: hidden; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .card {
+    width: 1200px; height: 630px; position: relative; overflow: hidden;
+    background: radial-gradient(circle at 85% 20%, #7EF0B6 0%, transparent 45%),
+                linear-gradient(135deg, #3DDC84 0%, #2BC48A 55%, #1FAE8F 100%);
+    color: #062B22;
+  }
+  .grid { position: absolute; inset: 0; opacity: .06;
+    background-image: linear-gradient(#062B22 1px, transparent 1px), linear-gradient(90deg, #062B22 1px, transparent 1px);
+    background-size: 40px 40px; }
+  .left { position: absolute; left: 64px; top: 56px; width: 640px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 26px; letter-spacing: -0.5px; }
+  .brand svg { width: 34px; height: 34px; }
+  h1 { margin-top: 46px; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -2px; }
+  h1 em { font-style: normal; color: #FFFFFF; }
+  .sub { margin-top: 24px; font-size: 21px; line-height: 1.5; font-weight: 500; color: #0B3B2E; max-width: 560px; }
+  .pill { position: absolute; left: 64px; bottom: 52px; display: inline-flex; align-items: center; gap: 14px;
+    background: #062B22; color: #fff; border-radius: 40px; padding: 15px 28px 15px 20px;
+    font-family: 'JetBrains Mono', monospace; font-size: 19px; font-weight: 600; }
+  .pill svg { width: 30px; height: 30px; fill: #fff; }
+  .phone { position: absolute; right: 70px; top: 46px; width: 360px; height: 640px; background: #062B22;
+    border-radius: 54px; padding: 14px; box-shadow: 0 30px 60px rgba(6,43,34,.35); transform: rotate(-4deg); }
+  .screen { width: 100%; height: 100%; background: #fff; border-radius: 42px; padding: 40px 28px; }
+  .s-title { font-size: 22px; font-weight: 800; color: #062B22; }
+  .s-sub { margin-top: 6px; font-size: 13.5px; color: #5F6B67; line-height: 1.45; }
+  .row { display: flex; gap: 14px; align-items: flex-start; margin-top: 22px; }
+  .row svg { width: 24px; height: 24px; flex: none; fill: #1F8F6A; }
+  .row b { display: block; font-size: 15px; color: #1C2B27; font-weight: 700; }
+  .row span { display: block; font-size: 12.5px; color: #66736F; margin-top: 3px; line-height: 1.4; }
+  .chip { display: inline-block; margin-top: 26px; background: #E3F8EE; color: #13795A; font-weight: 700;
+    font-size: 13px; padding: 8px 16px; border-radius: 20px; }
+  .term { margin-top: 22px; background: #0E1A17; border-radius: 14px; padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.7; color: #CDEBDD; }
+  .term .ok { color: #3DDC84; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="grid"></div>
+
+  <div class="left">
+    <div class="brand">
+      <svg viewBox="0 0 24 24"><path fill="#062B22" d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      play-data-safety
+    </div>
+    <h1>Fill Play's Data Safety form <em>from your code</em><span style="margin-left:-12px">,</span> not memory</h1>
+    <p class="sub">A free AI agent skill for Android. It scans your code and SDKs, asks only what code can't tell, and writes the CSV Play Console imports.</p>
+  </div>
+
+  <div class="pill">
+    <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    github.com/wajahatkarim3/play-data-safety-skill
+  </div>
+
+  <div class="phone"><div class="screen">
+    <div class="s-title">Data safety</div>
+    <div class="s-sub">Generated from your app's code, libraries and permissions.</div>
+
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      <div><b>No data shared with third parties</b><span>Firebase, RevenueCat are service providers</span></div>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+      <div><b>Collects 6 types of data</b><span>App activity, Device IDs, Crash logs and 3 more</span></div>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>
+      <div><b>Data is encrypted in transit</b></div>
+    </div>
+    <div class="row">
+      <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+      <div><b>You can request data deletion</b></div>
+    </div>
+
+    <div class="term">
+      <div><span class="ok">✓</span> 382 libraries scanned</div>
+      <div><span class="ok">✓</span> 6 SDKs matched · sources cited</div>
+      <div><span class="ok">✓</span> play_data_safety.csv written</div>
+    </div>
+  </div></div>
+</div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<div align="center"><img src="docs/cover.png" alt="Play Data Safety: fill Play's Data Safety form from your code, not memory" width="100%"/></div>
 <h1 align="center">🛡️ Play Data Safety</h1>
 <h4 align="center">Fill Google Play's Data safety form from your Android app's real code, not from memory.<br/>An agent skill for Claude Code, Gemini CLI, Codex, Cursor, OpenCode and Antigravity.</h4>
 <div align="center"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fwajahatkarim3%2Fplay-data-safety-skill&text=Fill%20Google%20Play%27s%20Data%20safety%20form%20from%20your%20Android%20app%27s%20real%20code%2C%20not%20from%20memory.%20Free%20agent%20skill%20for%20Claude%20Code%2C%20Gemini%20CLI%2C%20Codex%20and%20Cursor&hashtags=android%2Cgoogleplay%2Cai%2Copensource">
