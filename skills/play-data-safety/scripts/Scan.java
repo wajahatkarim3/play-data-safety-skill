@@ -448,7 +448,8 @@ public class Scan {
         }
         Pattern perm = Pattern.compile("<uses-permission(?:-sdk-23)?[^>]*android:name\\s*=\\s*\"([^\"]+)\"([^>]*)>");
         for (Path mf : manifests) {
-            String t = Files.readString(mf);
+            // Drop XML comments first: templates often ship commented-out <uses-permission> examples.
+            String t = Files.readString(mf).replaceAll("(?s)<!--.*?-->", "");
             Matcher m = perm.matcher(t);
             while (m.find()) {
                 String full = m.group(1);
