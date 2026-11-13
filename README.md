@@ -244,7 +244,7 @@ Please contribute the entry back.
 
 [![Twitter](https://img.shields.io/badge/-twitter-grey?logo=twitter)](https://twitter.com/WajahatKarim)
 [![Web](https://img.shields.io/badge/-web-grey?logo=appveyor)](https://wajahatkarim.com/)
-[![Medium](https://img.shields.io/badge/-medium-grey?logo=medium)](https://medium.com/@wajahatkarim3)
+[![Medium](https://img.shields.io/badge/-medium-grey?logo=medium)](https://wajahatkarim.medium.com/)
 [![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/wajahatkarim/)
 
 <br/>
