@@ -16,7 +16,8 @@
       "shared": false,
       "ephemeral": false,
       "purposes": [
-        "App functionality"
+        "App functionality",
+        "Analytics"
       ],
       "when": "Always: an anonymous user ID for unidentified users; the push token is attached to the user record when push is used (intercom-sdk).",
       "sourceUrl": "https://www.intercom.com/help/en/articles/7669340-mobile-sdk-faqs"
@@ -43,6 +44,18 @@
       ],
       "when": "When users converse in the Messenger (customer support conversations). Stated in Intercom's iOS SDK privacy article; same Messenger feature on Android.",
       "sourceUrl": "https://www.intercom.com/help/en/articles/4686934-apple-s-app-store-data-privacy-details-and-intercom-s-ios-sdk"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always: Intercom says its SDK collects the user's IP address, 'which could be described as coarse location' (stated for iOS; assumed the same for Android, which uses the same backend).",
+      "sourceUrl": "https://www.intercom.com/help/en/articles/4686934-apple-s-app-store-data-privacy-details-and-intercom-s-ios-sdk"
     }
   ],
   "ask": [
@@ -50,7 +63,6 @@
     "Do you send custom user attributes or company data? Declare whatever personal data they contain.",
     "Can users attach photos or files in conversations? If yes, declare Photos and videos / Photos (and Videos) and/or Files and docs.",
     "Do you use the Help Center? Intercom's iOS article says Help Center searches are recorded; declare App activity / In-app search history.",
-    "Intercom's iOS article says the SDK collects the user's IP address (coarse location). Assume the same on Android unless Intercom confirms otherwise, and declare Location / Approximate location.",
     "Do bots or forms in the Messenger collect email or phone? Declare Personal info / Email address or Phone number."
   ],
   "sources": [
@@ -71,5 +83,5 @@
     }
   ],
   "confidence": "low",
-  "notes": "Intercom does not publish a Google Play Data safety guide (Play SDK Index lists Data safety guidance as 'Not provided'). Mapping uses Android SDK FAQ plus Intercom's iOS App Store privacy article (which declares contact info, coarse location, user content, search history, device ID and product interaction, purposes incl. developer's advertising/marketing, analytics, app functionality; no IDFA). Needs review. intercom-sdk requires firebase-messaging for push; intercom-sdk-base has no push."
+  "notes": "Intercom does not publish a Google Play Data safety guide (Play SDK Index lists Data safety guidance as 'Not provided'). Mapping uses Android SDK FAQ plus Intercom's iOS App Store privacy article (which declares contact info, coarse location, user content, search history, device ID and product interaction, purposes incl. developer's advertising/marketing, analytics, app functionality; no IDFA). Needs review. intercom-sdk requires firebase-messaging for push; intercom-sdk-base has no push. Approximate location is declared by default because Intercom's own article says the IP address is always collected. Reviewed 2026-11-13 against the cited pages."
 }

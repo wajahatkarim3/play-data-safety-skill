@@ -41,6 +41,17 @@
       ],
       "when": "If crash reporting is used: each crash occurrence carries device info, user attributes, user steps, network and console logs.",
       "sourceUrl": "https://docs.luciq.ai/product-guides-and-integrations/product-guides/crash-reporting/occurrences-content"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "With crash reporting: Luciq lists 'Device location' in every crash occurrence. The SDK requests no location permission, so this is treated as IP-derived approximate location.",
+      "sourceUrl": "https://docs.luciq.ai/product-guides-and-integrations/product-guides/crash-reporting/occurrences-content"
     }
   ],
   "ask": [
@@ -48,7 +59,6 @@
     "Do you log network requests (Unified Network Interception, OkHttp interceptor or LuciqNetworkLog)? Request/response bodies and headers are attached; mask sensitive fields or declare what they contain.",
     "Do you set user identity or attributes (identifyUser with email/name/ID, user attributes, custom data)? Declare Personal info / Email address, Name, User IDs accordingly.",
     "Repro steps can include screenshots of screens; have you marked private views / enabled auto-masking? If not, screens showing personal data are collected.",
-    "Crash/bug occurrences list a 'device location'; check with Luciq whether this is IP-derived country/city and, if so, declare Location / Approximate location.",
     "Do you use chats or surveys? Declare Messages / Other in-app messages and App activity / Other user-generated content."
   ],
   "sources": [
@@ -69,5 +79,5 @@
     }
   ],
   "confidence": "low",
-  "notes": "Instabug rebranded to Luciq: current Maven group is ai.luciq.library (artifact luciq); legacy is com.instabug.library:instabug (and instabug-* modules). No Luciq/Instabug Google Play Data safety guide was found; mapping inferred from SDK docs and needs review. Luciq recommends mentioning in your privacy policy that logging data may be collected to troubleshoot bugs."
+  "notes": "Instabug rebranded to Luciq: current Maven group is ai.luciq.library (artifact luciq); legacy is com.instabug.library:instabug (and instabug-* modules). No Luciq/Instabug Google Play Data safety guide was found; mapping inferred from SDK docs and needs review. Luciq recommends mentioning in your privacy policy that logging data may be collected to troubleshoot bugs. Approximate location is declared because Luciq's crash occurrence page lists 'Device location'; confirm with Luciq if you need precision. Reviewed 2026-11-13 against the cited pages."
 }

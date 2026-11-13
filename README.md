@@ -208,7 +208,7 @@ included. You arrive with an idea and leave with a Play Store submission.
 | [Firebase Remote Config](https://firebase.google.com/docs/android/play-data-disclosure) | Google | Service provider | high | 2026-11-13 |
 | [Google Analytics for Firebase](https://support.google.com/analytics/answer/11582702) | Google | Service provider | high | 2026-11-13 |
 | [Google Mobile Ads SDK (AdMob)](https://developers.google.com/admob/android/privacy/play-data-disclosure) | Google | Shares data | high | 2026-11-13 |
-| [Google Play Billing Library](https://support.google.com/googleplay/android-developer/answer/10787469) | Google | Service provider | low | 2026-11-13 |
+| [Google Play Billing Library](https://support.google.com/googleplay/android-developer/answer/10787469) | Google | Service provider | medium | 2026-11-13 |
 | [Intercom Android SDK](https://www.intercom.com/help/en/articles/7669340-mobile-sdk-faqs) | Intercom | Service provider | low | 2026-11-13 |
 | [Luciq (formerly Instabug) Android SDK](https://docs.luciq.ai/android/set-up-luciq-for-android/logs-and-profiling/report-logs-for-android) | Luciq (formerly Instabug) | Service provider | low | 2026-11-13 |
 | [Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure) | Google | Service provider | medium | 2026-11-13 |

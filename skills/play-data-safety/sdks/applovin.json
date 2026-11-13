@@ -83,5 +83,5 @@
     }
   ],
   "confidence": "low",
-  "notes": "AppLovin does not appear to publish a Google Play Data safety guide for its Android SDK (none found on support.applovin.com / developers.axon.ai; Play SDK Index page could not be read). These entries are inferred from AppLovin's company-wide privacy policy, which also covers non-SDK products, so a reviewer should confirm before shipping. Purchase/transaction data in the policy comes from advertisers, not from the publisher SDK, so it is not listed. Ephemeral, encryption and deletion answers are not stated."
+  "notes": "AppLovin does not appear to publish a Google Play Data safety guide for its Android SDK (none found on support.applovin.com / developers.axon.ai; Play SDK Index page could not be read). These entries are inferred from AppLovin's company-wide privacy policy, which also covers non-SDK products, so a reviewer should confirm before shipping. Purchase/transaction data in the policy comes from advertisers, not from the publisher SDK, so it is not listed. Ephemeral, encryption and deletion answers are not stated. Privacy policy confirmed to list advertising IDs (GAID), App Set IDs, IP address and device properties (battery, storage, memory, boot time). Reviewed 2026-11-13 against the cited pages."
 }
