@@ -137,6 +137,18 @@ to production.
 
 <br/>
 
+## 🎓 Learn to Ship Your App Live with shipkaro weekend
+
+<a href="https://1dayapp.shipkaro.dev"><img src="docs/1dayapp-cover.png" alt="shipkaro weekend: Build your app. Ship it in a weekend." width="100%"/></a>
+
+Prefer to build it with people? **shipkaro weekend** is a live, hands-on cohort: three evenings on
+Google Meet where you build an Android app with AI and submit it to Google Play, Data safety form
+included. You arrive with an idea and leave with a Play Store submission.
+
+👉 **[1dayapp.shipkaro.dev](https://1dayapp.shipkaro.dev)**
+
+<br/>
+
 ## 📦 SDKs Covered
 
 38 SDKs, each mapped to Play's data types with the vendor's own source:
