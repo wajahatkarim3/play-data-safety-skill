@@ -1,0 +1,79 @@
+{
+  "id": "braze",
+  "name": "Braze Android SDK",
+  "vendor": "Braze",
+  "category": "engagement",
+  "match": [
+    "com.braze:android-sdk-ui",
+    "com.braze:android-sdk-base",
+    "com.braze:android-sdk-location",
+    "com.braze:android-sdk-jetpack-compose"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: Braze collects session activity by default; other interactions depend on your custom events.",
+      "sourceUrl": "https://www.braze.com/docs/developer_guide/analytics/managing_data_collection?sdktab=android"
+    },
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always, for errors inside the Braze SDK (includes phone model, OS level and a Braze-specific user ID).",
+      "sourceUrl": "https://www.braze.com/docs/developer_guide/analytics/managing_data_collection?sdktab=android"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always. Braze generates a device ID to tell devices apart and confirm messages reach the intended device.",
+      "sourceUrl": "https://www.braze.com/docs/developer_guide/analytics/managing_data_collection?sdktab=android"
+    },
+    {
+      "type": "Messages / Other in-app messages",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "If you send in-app messages or push through Braze: Braze records when users open or read them.",
+      "sourceUrl": "https://www.braze.com/docs/developer_guide/analytics/managing_data_collection?sdktab=android",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Do you call changeUser() with an external user ID? If yes, declare Personal info / User IDs.",
+    "Do you set user attributes such as email, name, phone, gender, date of birth, home city or custom attributes? Declare Personal info / Email address, Name, Phone number, Other info (and Approximate location for home city) as applicable.",
+    "Do you use com.braze:android-sdk-location or setLastKnownLocation / geofences? If yes, declare Location / Approximate or Precise location (matching your location permission).",
+    "Do you log purchases (logPurchase)? If yes, declare Financial info / Purchase history.",
+    "Do you pass the Google Advertising ID to Braze? If yes, declare it under Device or other IDs and add Advertising or marketing as a purpose.",
+    "Do you use Braze for marketing campaigns? Add Advertising or marketing and/or Developer communications to the purposes."
+  ],
+  "sources": [
+    {
+      "url": "https://www.braze.com/docs/developer_guide/analytics/managing_data_collection?sdktab=android",
+      "title": "Manage Data Collection for the Braze SDK (Google Play privacy questionnaire)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Braze's Google Play privacy questionnaire: the SDK 'collects data as configured by the app developer'; data processed per your instructions (service provider); encrypted in transit; users can request deletion. Approximate location, health, emails, user-generated content not collected by default. Purposes are not given per data type by Braze; those listed here are suggestions. The older URL /developer_guide/platforms/android/google_play_privacy returns 404."
+}

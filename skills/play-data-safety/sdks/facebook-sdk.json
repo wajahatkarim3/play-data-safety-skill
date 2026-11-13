@@ -1,0 +1,91 @@
+{
+  "id": "facebook-sdk",
+  "name": "Facebook SDK for Android (App Events, Login, Share)",
+  "vendor": "Meta",
+  "category": "attribution",
+  "match": [
+    "com.facebook.android:facebook-*"
+  ],
+  "role": "third-party",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Advertising or marketing"
+      ],
+      "when": "Always with App Events (facebook-core, pulled in by every facebook-* module): device identifiers incl. the advertising ID. Advertiser ID collection can be disabled with the manifest flag com.facebook.sdk.AdvertiserIDCollectionEnabled=false or delayed until consent via setAdvertiserIDCollectionEnabled().",
+      "sourceUrl": "https://developers.facebook.com/blog/post/2022/07/18/resources-for-completing-app-store-data-practice-questionnaires-apps-facebook-or-audience-network-sdk"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Advertising or marketing"
+      ],
+      "when": "By default: App Install and App Launch events are logged automatically unless AutoLogAppEventsEnabled is false (or disabled in Events Manager). Standard/custom events you log add more.",
+      "sourceUrl": "https://developers.facebook.com/docs/app-events/automatic-event-collection-detail"
+    },
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Advertising or marketing"
+      ],
+      "when": "By default: completed Google Play in-app purchases are logged automatically unless automatic event logging is disabled.",
+      "sourceUrl": "https://developers.facebook.com/docs/app-events/automatic-event-collection-detail"
+    },
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Only when the Facebook SDK itself causes a crash ('Facebook SDK Crash Report', which Meta says contains no user data and is for Meta's use).",
+      "sourceUrl": "https://developers.facebook.com/docs/app-events/automatic-event-collection-detail",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Have you disabled automatic App Events logging (com.facebook.sdk.AutoLogAppEventsEnabled=false)? If yes and you log no events manually, App interactions / Purchase history may not apply; if you log purchases or custom events manually, keep them.",
+    "Do you use Advanced Matching (setUserData / passing email, name, phone, address, gender, date of birth)? If yes, declare the matching Personal info types (Email address, Name, Phone number, Address, Other info) as collected and shared for Advertising or marketing.",
+    "Do you use Facebook Login? Meta links a unique app-scoped user ID to the user's Facebook account, and your app receives profile data (name, email, photo) the user grants. Declare Personal info / User IDs and any profile data your app stores or sends off-device, with purpose Account management / App functionality.",
+    "Meta lists IP address, time zone, language and carrier among 'networking information' the SDK may receive and says it may process location information. Most ad/attribution SDK vendors declare Location / Approximate location for IP-derived location; decide with your legal reviewer whether to declare it.",
+    "Do your custom App Events carry other data (search terms, content IDs, user-generated content)? Declare the corresponding data types."
+  ],
+  "sources": [
+    {
+      "url": "https://developers.facebook.com/blog/post/2022/07/18/resources-for-completing-app-store-data-practice-questionnaires-apps-facebook-or-audience-network-sdk",
+      "title": "Resources for completing app store data practice questionnaires for apps that include the Facebook or Audience Network SDK (Meta for Developers blog, 2022-07-18)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/app-events/automatic-event-collection-detail",
+      "title": "Automatic App Event Logging (Meta)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/app-events/getting-started-app-events-android/",
+      "title": "Get Started with App Events (Android) (Meta)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://github.com/facebook/facebook-android-sdk",
+      "title": "facebook-android-sdk README (module coordinates)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Meta does not publish a Google Play Data safety guide for the Facebook SDK. Data types are mapped from Meta's own description of what the SDK may receive. Meta uses App Events data for ad measurement, audience building and its own analytics, so data is treated as shared with a third party. The SDK also sends app metadata (app links, screen titles) and sampled 'product development' data such as screen layout; these are not Play user-data types but can be turned off with AutoLogMetaDataEnabled / AutoLogProductImprovementEnabled. Encryption-in-transit and deletion answers are not stated by Meta. The wildcard matches all facebook-* modules on Maven Central (core, login, share, messenger, applinks, marketing, gamingservices, common, bolts, android-sdk), all of which depend on facebook-core."
+}

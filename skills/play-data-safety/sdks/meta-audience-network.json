@@ -1,0 +1,53 @@
+{
+  "id": "meta-audience-network",
+  "name": "Meta Audience Network SDK",
+  "vendor": "Meta",
+  "category": "ads",
+  "match": [
+    "com.facebook.android:audience-network-sdk"
+  ],
+  "role": "third-party",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing"
+      ],
+      "when": "Always when Audience Network ads are integrated (Meta lists 'Device identifiers').",
+      "sourceUrl": "https://developers.facebook.com/blog/post/2022/07/18/resources-for-completing-app-store-data-practice-questionnaires-apps-facebook-or-audience-network-sdk"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics"
+      ],
+      "when": "Always: ad performance information such as impressions, clicks, placement and viewability.",
+      "sourceUrl": "https://developers.facebook.com/blog/post/2022/07/18/resources-for-completing-app-store-data-practice-questionnaires-apps-facebook-or-audience-network-sdk"
+    }
+  ],
+  "ask": [
+    "Meta does not list location for Audience Network, but ad requests reach Meta's servers with the device IP address. Decide with your reviewer whether to declare Location / Approximate location, as most ad networks do.",
+    "Is Audience Network used through a mediation platform (AdMob, LevelPlay, AppLovin MAX)? Declare the mediation SDK separately."
+  ],
+  "sources": [
+    {
+      "url": "https://developers.facebook.com/blog/post/2022/07/18/resources-for-completing-app-store-data-practice-questionnaires-apps-facebook-or-audience-network-sdk",
+      "title": "Resources for completing app store data practice questionnaires for apps that include the Facebook or Audience Network SDK (Meta for Developers blog, 2022-07-18)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.facebook.com/docs/audience-network/setting-up/platform-setup/android/add-sdk",
+      "title": "Add the Audience Network SDK to your Android app (Meta)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "No Play Data safety guide from Meta. Meta's list for Audience Network: device identifiers; device attributes (model, screen size, OS, mediation platform and SDK versions); ad performance information (impressions, clicks, placement, viewability). Device attributes have no direct Play data-type label. Meta uses this to deliver its ads, so it is treated as shared with a third party. Encryption/deletion answers are not stated by Meta."
+}

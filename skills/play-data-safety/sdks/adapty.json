@@ -1,0 +1,63 @@
+{
+  "id": "adapty",
+  "name": "Adapty Android SDK",
+  "vendor": "Adapty",
+  "category": "payments",
+  "match": [
+    "io.adapty:android-sdk",
+    "io.adapty:android-ui",
+    "io.adapty:android-ui-video"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always.",
+      "sourceUrl": "https://adapty.io/docs/google-play-data-safety"
+    },
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always. Adapty says this collection is required and cannot be turned off.",
+      "sourceUrl": "https://adapty.io/docs/google-play-data-safety"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always (Adapty lists Device ID). Adapty's page shows the purposes for this type only as screenshots; App functionality and Analytics mirror its other answers and should be checked.",
+      "sourceUrl": "https://adapty.io/docs/google-play-data-safety"
+    }
+  ],
+  "ask": [
+    "Do you explicitly pass name, email or phone number to the Adapty SDK (e.g. updateProfile)? If yes, declare Personal info / Name, Email address and/or Phone number.",
+    "Do you use Adapty integrations with third parties that are not your service providers (e.g. ad/attribution networks)? If yes, Adapty says you may need to mark data as shared."
+  ],
+  "sources": [
+    {
+      "url": "https://adapty.io/docs/google-play-data-safety",
+      "title": "Google Play Data Safety (Adapty docs)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Adapty: data encrypted in transit; not processed ephemerally; deletion possible from dashboard or REST API (answer 'Yes' only if users can contact you to request it). Not collected: location, health, photos/videos, files, calendar, contacts, browsing/search history, app info and performance. Maven artifacts verified on Maven Central (io.adapty group)."
+}

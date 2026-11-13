@@ -1,0 +1,90 @@
+{
+  "id": "firebase-analytics",
+  "name": "Google Analytics for Firebase",
+  "vendor": "Google",
+  "category": "analytics",
+  "match": [
+    "com.google.firebase:firebase-analytics",
+    "com.google.firebase:firebase-analytics-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: an app-instance ID is assigned to every app instance. Also the Android Advertising ID, unless the developer disables its collection (Analytics data collection settings / removing the AD_ID permission). App-instance ID collection can be disabled with the Consent Mode API.",
+      "sourceUrl": "https://support.google.com/analytics/answer/11582702"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: coarse location is derived from the device's masked IP address.",
+      "sourceUrl": "https://support.google.com/analytics/answer/11582702"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: app lifecycle events (screen views and sessions) are collected automatically, plus any custom events the app logs.",
+      "sourceUrl": "https://support.google.com/analytics/answer/11582702"
+    },
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always when the app has in-app purchases or subscriptions: purchase and subscription events with product ID, product name and price are collected automatically.",
+      "sourceUrl": "https://support.google.com/analytics/answer/11582702"
+    },
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Only if the app calls setUserId(). All later events are associated with that ID until it is set to null.",
+      "sourceUrl": "https://support.google.com/analytics/answer/11582702",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Do you call setUserId() or otherwise attach a user identifier to analytics events? If no, remove Personal info / User IDs.",
+    "Is Google Signals enabled for the GA property? If yes, Analytics conditionally collects signed-in account information; review whether Personal info / User IDs and the Advertising or marketing purpose apply.",
+    "Have you linked Google Ads, exported key events or audiences, or enabled Data Sharing Settings with Google products & services? If yes, add the Advertising or marketing purpose and review whether this counts as sharing.",
+    "Do you log custom events or user properties containing personal data (e.g. search terms, email, content IDs)? Declare the matching data types.",
+    "Have you disabled Advertising ID collection (google_analytics_adid_collection_enabled=false or removed AD_ID permission)? The Device or other IDs entry still applies because of the app-instance ID."
+  ],
+  "sources": [
+    {
+      "url": "https://support.google.com/analytics/answer/11582702",
+      "title": "Prepare for Google Play's data disclosure requirements (Google Analytics Help)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "The Firebase page delegates Analytics to the Google Analytics Help article, which lists: app-instance ID, Advertising ID, masked IP address (coarse location), in-app purchase/subscription events, app lifecycle events (automatic); User-ID and Google Signals account identifiers (conditional). Data encrypted in transit (TLS). The GA article does not state collected-vs-shared or map to Play purposes; shared=false relies on Firebase's global statement that data is not transferred to third parties except subprocessors or per developer instruction. Optional features (Google Signals, Google Ads linking, data sharing settings) can change that; see ask. Crashlytics, In-App Messaging, Remote Config and FCM use Analytics data when it is present."
+}

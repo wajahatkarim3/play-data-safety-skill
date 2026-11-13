@@ -1,0 +1,87 @@
+{
+  "id": "applovin",
+  "name": "AppLovin MAX / AppLovin SDK",
+  "vendor": "AppLovin (Axon)",
+  "category": "ads",
+  "match": [
+    "com.applovin:applovin-sdk"
+  ],
+  "role": "third-party",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: AppLovin's privacy policy lists advertising IDs (GAID / Amazon Advertising ID) and App Set IDs.",
+      "sourceUrl": "https://legal.applovin.com/privacy/"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: the policy lists IP address plus country, time zone and locale settings. No precise location is listed.",
+      "sourceUrl": "https://legal.applovin.com/privacy/"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: ad interactions and session information used for measurement and reporting of ad activity.",
+      "sourceUrl": "https://legal.applovin.com/privacy/"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: the policy lists device properties (battery, storage, memory, boot time) and app 'performance' and session information.",
+      "sourceUrl": "https://legal.applovin.com/privacy/"
+    }
+  ],
+  "ask": [
+    "Do you pass a user ID, email or phone number to the AppLovin SDK (e.g. setUserIdentifier / publisher user ID)? AppLovin's policy lists these 'if provided by publisher'; if yes, declare Personal info / User IDs, Email address or Phone number as shared.",
+    "Which networks do you mediate through MAX? Each mediated ad network SDK needs its own disclosure."
+  ],
+  "sources": [
+    {
+      "url": "https://legal.applovin.com/privacy/",
+      "title": "AppLovin Privacy Policy (effective 2026-08-06)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://support.applovin.com/en/max/android/overview/privacy",
+      "title": "AppLovin MAX Android privacy (consent flags; no Data safety table)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://support.applovin.com/en/max/android/overview/integration",
+      "title": "AppLovin MAX Android integration (Maven coordinates)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "low",
+  "notes": "AppLovin does not appear to publish a Google Play Data safety guide for its Android SDK (none found on support.applovin.com / developers.axon.ai; Play SDK Index page could not be read). These entries are inferred from AppLovin's company-wide privacy policy, which also covers non-SDK products, so a reviewer should confirm before shipping. Purchase/transaction data in the policy comes from advertisers, not from the publisher SDK, so it is not listed. Ephemeral, encryption and deletion answers are not stated."
+}

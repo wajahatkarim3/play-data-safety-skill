@@ -1,0 +1,88 @@
+{
+  "id": "appsflyer",
+  "name": "AppsFlyer Android SDK",
+  "vendor": "AppsFlyer",
+  "category": "attribution",
+  "match": [
+    "com.appsflyer:af-android-sdk"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: the IP address is received and mapped to region/city level. Precise location is not collected.",
+      "sourceUrl": "https://support.appsflyer.com/hc/en-us/articles/4417197430289-Fill-out-Google-safety-section-form"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: AppsFlyer measures app launches by default, which it says 'may be deemed page views or other actions'. If you log in-app events, also consider App activity / Other actions.",
+      "sourceUrl": "https://support.appsflyer.com/hc/en-us/articles/4417197430289-Fill-out-Google-safety-section-form"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always per AppsFlyer's default-configuration table (e.g. launch time or battery level for fraud detection).",
+      "sourceUrl": "https://support.appsflyer.com/hc/en-us/articles/4417197430289-Fill-out-Google-safety-section-form"
+    },
+    {
+      "type": "App info and performance / Other app performance data",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always per AppsFlyer's default-configuration table.",
+      "sourceUrl": "https://support.appsflyer.com/hc/en-us/articles/4417197430289-Fill-out-Google-safety-section-form"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "By default the Android SDK collects the Google Advertising ID (GAID). Not collected if you remove the AD_ID permission and call setDisableAdvertisingIdentifiers.",
+      "sourceUrl": "https://support.appsflyer.com/hc/en-us/articles/4417197430289-Fill-out-Google-safety-section-form"
+    }
+  ],
+  "ask": [
+    "Do you send attribution data to ad networks or other partners (postbacks, SRN integrations, audiences)? AppsFlyer says that counts as sharing: if yes, mark these data types as shared with purpose Advertising or marketing.",
+    "Do you measure in-app purchases with AppsFlyer? If yes, declare Financial info / Purchase history.",
+    "Do you log custom in-app events? If yes, declare App activity / Other actions (or App interactions) for those events.",
+    "Do you set a Customer User ID (setCustomerUserId) or send hashed emails / phone numbers? If yes, declare Personal info / User IDs, Email address and/or Phone number as applicable.",
+    "Do you use the data for app features, notifications, personalization or account management? AppsFlyer only pre-answers Analytics and Fraud prevention; add the other purposes that apply."
+  ],
+  "sources": [
+    {
+      "url": "https://support.appsflyer.com/hc/en-us/articles/4417197430289-Fill-out-Google-safety-section-form",
+      "title": "Fill out Google safety section form (AppsFlyer Help Center, updated 2026-10-14)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "AppsFlyer says it 'acts solely as a service provider on your behalf', so default data is collected but not shared; sharing arises only from partner integrations you configure. AppsFlyer says data is not processed ephemerally, is encrypted in transit, and can be deleted via its OpenGDPR framework. The help-center page blocks automated fetches; content was read via the Zendesk Help Center API for the same article (updated_at 2026-10-14)."
+}

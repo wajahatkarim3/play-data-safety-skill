@@ -1,0 +1,87 @@
+{
+  "id": "google-places",
+  "name": "Places SDK for Android",
+  "vendor": "Google",
+  "category": "maps",
+  "match": [
+    "com.google.android.libraries.places:places",
+    "com.google.android.libraries.places:places-compat",
+    "com.google.maps.android:places-ktx",
+    "com.google.maps.android:places-compose"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: stack traces for crashes within the SDK code and crash metrics such as abnormal terminations.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: request metadata including device metadata (OS version, name, model, brand, form factor), SDK build/version, API usage and number of results returned.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: a Google Maps Platform SDK identifier specific to the app, used to measure daily active SDK users.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure"
+    },
+    {
+      "type": "Location / Precise location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality"
+      ],
+      "when": "Only if the app uses features that discover the place at the device's current location (e.g. current place): lat/lng coordinates and nearby WiFi access points are collected.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure",
+      "conditional": true
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Only if the app uses UI components such as the Places Autocomplete widgets: widget interaction data.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Do you call current-place / nearby-from-device-location features? If no, remove Location / Precise location.",
+    "Do you set country codes or lat/lng bounds (location bias/restriction) derived from the user's location? If yes, consider declaring Location / Approximate location for that.",
+    "Users' typed Autocomplete queries are sent to Google as API input parameters. Decide whether to declare App activity / In-app search history (Google's page lists 'input parameters for Places APIs' as request metadata but does not map it to a Play type).",
+    "Do you also use the Maps SDK? Declare the google-maps entry too."
+  ],
+  "sources": [
+    {
+      "url": "https://developers.google.com/maps/documentation/places/android-sdk/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Places SDK for Android)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Google's Places page lists the items but does not state whether data is shared, whether location is processed ephemerally, or which Play purposes apply. Purposes, shared=false and ephemeral=false are our interpretation; hence medium confidence. IP address is also collected ('to understand SDK usage and improve Google services'); not mapped since Play has no IP data type and the page does not say it is used for location. places-compat is the deprecated compatibility library on Google Maven; places-ktx and places-compose (com.google.maps.android) wrap the Places SDK."
+}

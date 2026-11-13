@@ -1,0 +1,77 @@
+{
+  "id": "amplitude",
+  "name": "Amplitude Analytics (Android)",
+  "vendor": "Amplitude",
+  "category": "analytics",
+  "match": [
+    "com.amplitude:analytics-android",
+    "com.amplitude:android-sdk",
+    "com.amplitude:unified-android",
+    "com.amplitude:session-replay-android",
+    "com.amplitude:plugin-session-replay-android",
+    "com.amplitude:middleware-session-replay-android"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: events you track, plus session events (autocapture default set contains SESSIONS in the Android-Kotlin SDK).",
+      "sourceUrl": "https://amplitude.com/docs/sdks/analytics/android/android-kotlin-sdk"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. Device ID is a stored ID, else a random UUID; it uses the Advertising ID (ADID) or App Set ID only if useAdvertisingIdForDeviceId / useAppSetIdForDeviceId is enabled and the module is installed.",
+      "sourceUrl": "https://amplitude.com/docs/sdks/analytics/android/android-sdk"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "By default. Amplitude derives city, region and country from the client IP via MaxMind GeoIP. Disabling IP tracking in the SDK leaves location properties empty.",
+      "sourceUrl": "https://amplitude.com/docs/data/understand-ip-address-and-location"
+    }
+  ],
+  "ask": [
+    "Do you call setUserId() with your own user ID? If yes, declare Personal info / User IDs.",
+    "Do you set user properties or event properties containing personal data (email, name, phone, purchases)? Declare those types (e.g. Personal info / Email address, Financial info / Purchase history for revenue events).",
+    "Have you enabled useAdvertisingIdForDeviceId or left ADID tracking on with play-services-ads-identifier present? The Advertising ID is a Device or other ID; if used for ads attribution, add the Advertising or marketing purpose.",
+    "Legacy android-sdk only: do you call enableLocationListening() (off by default since v2.40.3)? If yes, declare Location / Precise location (or Approximate, depending on the permission you hold).",
+    "Do you use Amplitude Session Replay (com.amplitude:unified-android or session-replay-android / plugin-session-replay-android)? It records the screen; declare App activity / App interactions and review masking so personal data is not captured.",
+    "Do you enable extra autocapture (screen views, app lifecycles, deep links, element interactions)? These are still App activity / App interactions."
+  ],
+  "sources": [
+    {
+      "url": "https://amplitude.com/docs/sdks/analytics/android/android-kotlin-sdk",
+      "title": "Android-Kotlin SDK (Amplitude)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://amplitude.com/docs/sdks/analytics/android/android-sdk",
+      "title": "Android SDK (legacy, Amplitude)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://amplitude.com/docs/data/understand-ip-address-and-location",
+      "title": "IP address, location, user agent, and device properties (Amplitude)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Amplitude does not publish a Play Data safety guide; an Amplitude staff reply on its community says each app must answer based on what its own setup sends. Legacy com.amplitude:android-sdk is in maintenance/deprecated. Fields can be turned off with TrackingOptions (disableAdid, disableIpAddress, disableLatLng, etc.)."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "firebase-config",
+  "name": "Firebase Remote Config",
+  "vendor": "Google",
+  "category": "configuration",
+  "match": [
+    "com.google.firebase:firebase-config",
+    "com.google.firebase:firebase-config-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality"
+      ],
+      "when": "Always: Firebase installation ID (FID), a per-installation identifier, collected by the transitively included Firebase installations SDK (com.google.firebase:firebase-installations). Remote Config uses it when fetching configuration.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    }
+  ],
+  "ask": [
+    "Do you include Google Analytics for Firebase? Remote Config then uses Analytics user properties and first-open time for targeting; make sure the firebase-analytics entry is declared.",
+    "Do you use Remote Config personalization? Remote Config and Analytics data are then used to build predictive models; consider the Personalization purpose."
+  ],
+  "sources": [
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Firebase lists automatic collection of: country code, language code, time zone, platform version, OS version, Firebase Android App ID, package name and SDK version, all for targeting or service improvement. These are device/locale settings and have no clear Play data-type equivalent; country code is not listed as location here (the page does not say it is derived from location). Reviewers may decide otherwise. Remote Config is also pulled in transitively by firebase-perf and some ML Kit APIs. Firebase's page does not give a per-product collected/shared table; it states globally that Firebase does not transfer the listed data to third parties except to subprocessors that help provide Firebase services or per the developer's instructions (e.g. linking to non-Firebase services). On that basis shared=false and role=service-provider. The page lists raw data items (e.g. 'stack traces', 'IP address'), not Play data-type labels; the mapping to Play labels and purposes here is ours."
+}

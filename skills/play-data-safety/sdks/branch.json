@@ -1,0 +1,82 @@
+{
+  "id": "branch",
+  "name": "Branch Android SDK",
+  "vendor": "Branch Metrics",
+  "category": "attribution",
+  "match": [
+    "io.branch.sdk.android:library"
+  ],
+  "role": "mixed",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Advertising or marketing",
+        "Personalization"
+      ],
+      "when": "Always by default (page views and taps). Branch marks it optional for the user because its privacy controls can hold collection until opt-in.",
+      "sourceUrl": "https://help.branch.io/answering-the-google-play-store-privacy-questions"
+    },
+    {
+      "type": "App activity / Other actions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Advertising or marketing",
+        "Personalization"
+      ],
+      "when": "Clicks, installs and purchases that Branch measures on your behalf; Branch lists this as optional.",
+      "sourceUrl": "https://help.branch.io/answering-the-google-play-store-privacy-questions"
+    },
+    {
+      "type": "Web browsing / Web browsing history",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Advertising or marketing",
+        "Personalization"
+      ],
+      "when": "Branch answers YES (optional).",
+      "sourceUrl": "https://help.branch.io/answering-the-google-play-store-privacy-questions"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Advertising or marketing",
+        "Personalization"
+      ],
+      "when": "Branch answers YES (optional).",
+      "sourceUrl": "https://help.branch.io/answering-the-google-play-store-privacy-questions"
+    }
+  ],
+  "ask": [
+    "Does Branch measure in-app purchases for you? Branch says to declare App activity / Other user-generated content in that case (and consider Financial info / Purchase history).",
+    "Do you set a developer identity (setIdentity) or pass user data such as email to Branch? If yes, declare Personal info / User IDs and any other personal info sent.",
+    "Do you send Branch data to ad partners or use it for ads? Branch's guide answers 'collected and shared' with purposes App functionality, Analytics, Advertising or marketing and Personalization; drop shared/advertising only if your integration truly does not share."
+  ],
+  "sources": [
+    {
+      "url": "https://help.branch.io/answering-the-google-play-store-privacy-questions",
+      "title": "Answering the Google Play Store Privacy Questions (Branch)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Branch's guide answers that data is both collected and shared, not processed ephemerally, users can turn collection off, data is encrypted in transit, and users can request deletion. Branch also lists an 'Other data' row (engagement data, device metadata such as screen size and OS version) which has no exact Play label. Role is 'mixed' because Branch says it collects this data 'on your behalf' (service-provider style), yet its Play guide answers 'shared' and includes Advertising or marketing; this entry follows the guide and marks data shared. Branch says answers depend on your SDK configuration."
+}

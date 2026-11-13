@@ -1,0 +1,64 @@
+{
+  "id": "stripe",
+  "name": "Stripe Android SDK (PaymentSheet, payments-core, Financial Connections, Identity, CardScan)",
+  "vendor": "Stripe",
+  "category": "payments",
+  "match": [
+    "com.stripe:stripe-android",
+    "com.stripe:paymentsheet",
+    "com.stripe:payments-core",
+    "com.stripe:financial-connections",
+    "com.stripe:link",
+    "com.stripe:identity",
+    "com.stripe:stripecardscan"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Financial info / User payment info",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "When the app collects payment details through Stripe UI components (PaymentSheet, card input, etc.); card data is sent directly to Stripe.",
+      "sourceUrl": "https://support.stripe.com/questions/stripe-mobile-sdk-privacy-details",
+      "conditional": true
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Whenever Stripe SDK components are used (e.g. tokenizing a card, confirming a payment); by default Stripe also collects device characteristics and user interactions for fraud prevention.",
+      "sourceUrl": "https://support.stripe.com/questions/stripe-mobile-sdk-privacy-details"
+    }
+  ],
+  "ask": [
+    "Do you collect billing/contact details through Stripe (name, email, phone, address in PaymentSheet billing details or Link)? If yes, declare Personal info / Name, Email address, Phone number and/or Address for App functionality.",
+    "Do you use Stripe Customer IDs or customer ephemeral keys in the app? Stripe says it may link data to the user's identity; declare Personal info / User IDs.",
+    "Do you use Stripe Identity (com.stripe:identity) or StripeCardScan? These modules are not covered by this entry: check what Identity verification captures (e.g. ID document images) and note that Stripe says the ML Kit / LiteRT components they use may send performance and usage metrics to Google.",
+    "Do you use Financial Connections (bank account linking)? If yes, declare Financial info / Other financial info as applicable."
+  ],
+  "sources": [
+    {
+      "url": "https://support.stripe.com/questions/stripe-mobile-sdk-privacy-details",
+      "title": "Stripe Mobile SDK Privacy Details (Stripe Support)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://github.com/stripe/stripe-android/blob/master/README.md",
+      "title": "stripe-android README",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Stripe publishes privacy details framed for Apple's App Store labels, not a Google Play Data safety guide; types were mapped to Play labels. Stripe says it does not use this data for tracking. Stripe acts as the payment processor on the developer's behalf, so data is treated as collected, not shared. Stripe's 'device characteristics' collected for fraud prevention have no exact Play label and may warrant Device or other IDs; Stripe does not say which identifiers. Encryption in transit is implied (sent directly to Stripe) but not stated in Play terms. Artifact names verified on Maven Central (com.stripe group)."
+}

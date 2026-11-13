@@ -1,0 +1,44 @@
+{
+  "id": "play-billing",
+  "name": "Google Play Billing Library",
+  "vendor": "Google",
+  "category": "payments",
+  "match": [
+    "com.android.billingclient:billing",
+    "com.android.billingclient:billing-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality"
+      ],
+      "when": "Only if your app or backend collects purchase details off the device (e.g. sending purchase tokens, order IDs or product IDs to your server for verification, entitlement or analytics). Google Play's own processing of the payment does not need to be declared.",
+      "sourceUrl": "https://support.google.com/googleplay/android-developer/answer/10787469",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Do you send purchase tokens, order IDs or purchase details to your own server (server-side verification, entitlement sync, revenue analytics)? If yes, keep Financial info / Purchase history and add any extra purposes (e.g. Analytics, Fraud prevention, security, and compliance). If no, remove it.",
+    "Does your app ever see card numbers or other payment details? With Play Billing it should not; if it does through another path, declare Financial info / User payment info.",
+    "Do you link purchases to a user account (obfuscatedAccountId / your own user ID)? If yes, consider Personal info / User IDs."
+  ],
+  "sources": [
+    {
+      "url": "https://support.google.com/googleplay/android-developer/answer/10787469",
+      "title": "Provide information for Google Play's Data safety section (Play Console Help)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developer.android.com/privacy-and-security/declare-data-use",
+      "title": "Declare your app's data use (Android Developers)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "low",
+  "notes": "Google does not publish a Play Data safety guide for the Play Billing Library (no billing page alongside the Firebase/AdMob/Maps/ML Kit ones was found; developer.android.com/google/play/billing/play-data-disclosure returns 404). Play Console Help says that with a payment service such as Google Play's billing system you do not need to declare data the payment service collects to process the transaction (e.g. card number) if your app never accesses it and the service collects it directly under its own terms, but you should consider whether your app collects other financial information like purchase history. Android's 'Declare your app's data use' page lists 'Uses Google Play's Billing Library' as an example of accessing Financial info. The entry above is therefore conditional on the app's own handling, not a statement of what the library itself transmits."
+}

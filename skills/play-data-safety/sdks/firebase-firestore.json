@@ -1,0 +1,39 @@
+{
+  "id": "firebase-firestore",
+  "name": "Cloud Firestore",
+  "vendor": "Google",
+  "category": "database",
+  "match": [
+    "com.google.firebase:firebase-firestore",
+    "com.google.firebase:firebase-firestore-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality"
+      ],
+      "when": "Only if Firebase Authentication is also used and a user is signed in: every Firestore request then includes the Firebase Auth user ID.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "What user data does your app write to Firestore (names, emails, messages, photos/URLs, location, health, purchases...)? Declare each data type and its purpose; Firestore itself only stores what you send it.",
+    "Do you use Firebase Authentication together with Firestore? If no, remove Personal info / User IDs.",
+    "Can users delete the data you store in Firestore? This affects the deletion answers in the form."
+  ],
+  "sources": [
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Automatically, the Firestore SDK only collects the Firebase user agent (device metadata, installer, SDK versions; 'never linked to a user or device identifier'), which has no matching Play data type. Everything else is developer-defined, so the real disclosure depends on what the app stores (see ask). Firebase's page does not give a per-product collected/shared table; it states globally that Firebase does not transfer the listed data to third parties except to subprocessors that help provide Firebase services or per the developer's instructions (e.g. linking to non-Firebase services). On that basis shared=false and role=service-provider. The page lists raw data items (e.g. 'stack traces', 'IP address'), not Play data-type labels; the mapping to Play labels and purposes here is ours."
+}

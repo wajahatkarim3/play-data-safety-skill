@@ -1,0 +1,53 @@
+{
+  "id": "airship",
+  "name": "Airship Android SDK",
+  "vendor": "Airship",
+  "category": "engagement",
+  "match": [
+    "com.urbanairship.android:urbanairship-*"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always: a Channel ID is created (not linked to the user's identity). Push token collected if push notifications are used. Message Center credentials generated if Message Center is used.",
+      "sourceUrl": "https://www.airship.com/docs/reference/data-collection/google-play-data-safety/"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "If analytics is enabled: lifecycle events (foreground/background), Message Center message status, notification opt-in status, in-app automation events and push responses (button taps, quick replies).",
+      "sourceUrl": "https://www.airship.com/docs/reference/data-collection/google-play-data-safety/"
+    }
+  ],
+  "ask": [
+    "Do you use Contacts / named users (contact ID linked to the channel)? If you tie it to your user identity, declare Personal info / User IDs.",
+    "Do you set attributes with personal info (e.g. first name, email, phone)? Declare the matching Personal info types.",
+    "Do you send custom events (e.g. purchases) or screen views? Declare App activity / App interactions and, for purchases, Financial info / Purchase history.",
+    "Do you set health/fitness attributes (e.g. favorite workout)? Declare Health and fitness / Fitness info.",
+    "Do you use the Chat module (urbanairship-chat)? If yes, declare Messages / Other in-app messages.",
+    "Do you use urbanairship-ads-identifier or otherwise send the Advertising ID? Declare it under Device or other IDs and add Advertising or marketing if used for ads.",
+    "Do you use urbanairship-location? Airship requests location on the app's behalf but says it does not upload or store coordinates; confirm your own code does not send location."
+  ],
+  "sources": [
+    {
+      "url": "https://www.airship.com/docs/reference/data-collection/google-play-data-safety/",
+      "title": "Google Play Data Safety - Airship Docs",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Airship publishes a Google Play Data Safety table. Not collected: photos/videos, audio, files, calendar, contacts, web browsing, crash logs, diagnostics. Collection is controllable with Privacy Manager flags (can disable all features). The page does not state sharing, encryption or deletion; treated as a service provider. Purposes are suggestions where the page gives none."
+}

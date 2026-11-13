@@ -1,0 +1,85 @@
+{
+  "id": "bugsnag",
+  "name": "BugSnag Android",
+  "vendor": "SmartBear (BugSnag)",
+  "category": "crash-reporting",
+  "match": [
+    "com.bugsnag:bugsnag-android",
+    "com.bugsnag:bugsnag-android-core",
+    "com.bugsnag:bugsnag-android-ndk",
+    "com.bugsnag:bugsnag-plugin-android-*",
+    "com.bugsnag:bugsnag-android-performance*"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / Other actions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "By default. Breadcrumbs are stored and sent with each event; filter with enabledBreadcrumbTypes or edit/drop in an onBreadcrumb callback.",
+      "sourceUrl": "https://docs.bugsnag.com/platforms/android/playstore-privacy/"
+    },
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. Crash reports, plus internal reports for crashes in BugSnag library code (disable via the telemetry option).",
+      "sourceUrl": "https://docs.bugsnag.com/platforms/android/playstore-privacy/"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always (captured by default).",
+      "sourceUrl": "https://docs.bugsnag.com/platforms/android/playstore-privacy/"
+    },
+    {
+      "type": "App info and performance / Other app performance data",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. Application information is captured by default.",
+      "sourceUrl": "https://docs.bugsnag.com/platforms/android/playstore-privacy/"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. A per-device user ID and device ID are generated; both can be overridden, but the original device ID is still used for internal SDK crash reports.",
+      "sourceUrl": "https://docs.bugsnag.com/platforms/android/playstore-privacy/"
+    }
+  ],
+  "ask": [
+    "Do you call setUser() with an ID, email or name? If yes, declare Personal info / User IDs, Email address and/or Name, and mark data as linked to the user.",
+    "Do you add metadata, custom breadcrumbs or attachments containing personal data? Declare whatever they contain.",
+    "Do you use BugSnag Performance (bugsnag-android-performance*)? Declare App info and performance / Other app performance data (already listed) and review network-span URLs for personal data."
+  ],
+  "sources": [
+    {
+      "url": "https://docs.bugsnag.com/platforms/android/playstore-privacy/",
+      "title": "Google Play Store privacy - BugSnag Docs (Android)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "BugSnag publishes a Play Store privacy page for Android. Purpose: only Analytics applies per the vendor. SmartBear says it does not use customer event data for Google's listed purposes and processes data on the customer's behalf (customer is controller). Encrypted in transit (HTTPS/TLS). The SDK has no on-device deletion mechanism; deletion is via the dashboard or BugSnag's data access process."
+}

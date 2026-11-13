@@ -1,0 +1,83 @@
+{
+  "id": "google-sign-in",
+  "name": "Sign in with Google (Credential Manager googleid / legacy Google Sign-In)",
+  "vendor": "Google",
+  "category": "authentication",
+  "match": [
+    "com.google.android.libraries.identity.googleid:googleid",
+    "com.google.android.gms:play-services-auth"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Only if your app sends the credential (ID token or the profile fields parsed from it) off the device, e.g. to your backend to create or sign in to an account. The Google ID token carries a stable unique Google account identifier.",
+      "sourceUrl": "https://developers.google.com/identity/android-credential-manager/android/reference/kotlin/com/google/android/libraries/identity/googleid/GoogleIdTokenCredential",
+      "conditional": true
+    },
+    {
+      "type": "Personal info / Email address",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Only if your app sends the credential (ID token or the profile fields parsed from it) off the device, e.g. to your backend to create or sign in to an account. GoogleIdTokenCredential exposes the user's email address parsed from the ID token.",
+      "sourceUrl": "https://developers.google.com/identity/android-credential-manager/android/reference/kotlin/com/google/android/libraries/identity/googleid/GoogleIdTokenCredential",
+      "conditional": true
+    },
+    {
+      "type": "Personal info / Name",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Only if your app sends the credential (ID token or the profile fields parsed from it) off the device, e.g. to your backend to create or sign in to an account. GoogleIdTokenCredential exposes displayName, givenName and familyName.",
+      "sourceUrl": "https://developers.google.com/identity/android-credential-manager/android/reference/kotlin/com/google/android/libraries/identity/googleid/GoogleIdTokenCredential",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Does your app send the Google ID token or profile fields (email, name, ID) to your own backend or to Firebase Auth? If you only use Sign in with Google locally and never transmit these, the entries above may not apply.",
+    "Do you store or send the profile picture URI or phone number that GoogleIdTokenCredential can return? If yes, declare Photos and videos / Photos or Personal info / Phone number as appropriate.",
+    "Do you use AuthorizationClient (or legacy GoogleSignIn scopes) to access Google account data such as Drive, Calendar or Contacts? Declare those data types.",
+    "Do you use Firebase Authentication with Google sign-in? Also declare the firebase-auth entry.",
+    "Do you offer in-app account deletion? Play requires a deletion path for apps that let users create accounts."
+  ],
+  "sources": [
+    {
+      "url": "https://developer.android.com/identity/sign-in/credential-manager-siwg",
+      "title": "Authenticate users with Sign in with Google (Android Developers)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developer.android.com/identity/sign-in/credential-manager-siwg-implementation",
+      "title": "Implement Sign in with Google with Credential Manager (Android Developers)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.google.com/identity/android-credential-manager/android/reference/kotlin/com/google/android/libraries/identity/googleid/GoogleIdTokenCredential",
+      "title": "GoogleIdTokenCredential API reference (Google Identity)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developer.android.com/identity/sign-in/legacy-gsi-migration",
+      "title": "About the migration from legacy Google Sign-In (Android Developers)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "low",
+  "notes": "No Google Play Data safety guide exists for play-services-auth or googleid (developers.google.com/identity/sign-in/android/play-data-disclosure returns 404; the Google Play services disclosure page covers only base, basement, OSS licenses and tasks and refers other SDKs to their own docs, which have no disclosure page). This entry is inferred from the API surface: the credential returned to the app contains the user's ID token, unique ID, email, display/given/family name, and optionally profile picture URI and phone number. Whether that is 'collected' under Play's definition depends on whether the app transmits it off the device. Any data the SDK itself sends to Google is not documented and is not listed. Legacy Google Sign-In in play-services-auth is deprecated per Android docs; the implementation guide pairs googleid with androidx.credentials:credentials and androidx.credentials:credentials-play-services-auth. androidx.credentials itself is only an on-device API that routes requests to credential providers and collects nothing of its own, so it is deliberately not matched here. play-services-auth also contains other APIs (e.g. AuthorizationClient, SMS-related APIs ship separately as play-services-auth-api-phone, not matched)."
+}

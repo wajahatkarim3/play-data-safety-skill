@@ -1,0 +1,39 @@
+{
+  "id": "revenuecat",
+  "name": "RevenueCat Purchases SDK",
+  "vendor": "RevenueCat",
+  "category": "payments",
+  "match": [
+    "com.revenuecat.purchases:purchases*"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always. RevenueCat says this collection is required and cannot be turned off.",
+      "sourceUrl": "https://www.revenuecat.com/docs/platform-resources/google-platform-resources/google-plays-data-safety"
+    }
+  ],
+  "ask": [
+    "Do you set customer attributes with identifiable contact info (e.g. setEmail, setDisplayName, setPhoneNumber)? If yes, declare Personal info / Email address, Name and/or Phone number.",
+    "Do you use RevenueCat integrations that rely on advertising identifiers (collectDeviceIdentifiers / $gpsAdId, $androidId, attribution integrations)? If yes, declare Device or other IDs / Device or other IDs.",
+    "Do you identify users with your own app user ID (Purchases.logIn / appUserID)? If it is your account ID, consider declaring Personal info / User IDs.",
+    "Do you forward RevenueCat data to third-party integrations that are not your service providers (e.g. ad/attribution networks)? If yes, RevenueCat says you may also need to mark Purchase history as shared."
+  ],
+  "sources": [
+    {
+      "url": "https://www.revenuecat.com/docs/platform-resources/google-platform-resources/google-plays-data-safety",
+      "title": "Google Play's Data Safety (RevenueCat docs)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "RevenueCat: data encrypted in transit; not processed ephemerally; deletion possible via dashboard or REST API (answer 'Yes' to deletion only if users can reach you to request it). Location is not collected (only locale and currency code). App activity, app info and performance, and other categories are 'not collected'."
+}

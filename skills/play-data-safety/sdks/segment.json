@@ -1,0 +1,62 @@
+{
+  "id": "segment",
+  "name": "Segment Analytics (Analytics-Kotlin and legacy Analytics-Android)",
+  "vendor": "Twilio Segment",
+  "category": "analytics",
+  "match": [
+    "com.segment.analytics.kotlin:android",
+    "com.segment.analytics.kotlin:core",
+    "com.segment.analytics.android:analytics"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: track/screen/identify calls you make. Lifecycle, screen and deep-link events are off by default in Analytics-Kotlin (trackApplicationLifecycleEvents, recordScreenViews, trackDeepLinks).",
+      "sourceUrl": "https://www.twilio.com/docs/segment/connections/sources/catalog/libraries/mobile/kotlin-android"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Legacy Analytics-Android: always generates an anonymousId UUID stored on device and a DRM-based context.device.id, and reads the Advertising ID via Play Services when play-services-ads is present. Analytics-Kotlin: device ID only if collectDeviceId = true (default false).",
+      "sourceUrl": "https://www.twilio.com/docs/segment/connections/sources/catalog/libraries/mobile/android"
+    }
+  ],
+  "ask": [
+    "Which Segment destinations (device-mode or cloud-mode) do you forward data to? Segment routes your events to them; any destination that uses data for its own purposes (ad networks, attribution) makes that data 'shared'. Add each destination's own data types and sharing.",
+    "Do you call identify() with a user ID or traits (email, name, phone, address)? If yes, declare Personal info / User IDs and the matching Personal info types.",
+    "Legacy Analytics-Android with play-services-ads on the classpath collects the Advertising ID; if destinations use it for ads, add Advertising or marketing and mark shared as appropriate.",
+    "Analytics-Kotlin: did you set collectDeviceId = true? If yes, declare Device or other IDs.",
+    "Do you track purchases/revenue? If yes, declare Financial info / Purchase history."
+  ],
+  "sources": [
+    {
+      "url": "https://www.twilio.com/docs/segment/connections/sources/catalog/libraries/mobile/kotlin-android",
+      "title": "Analytics for Kotlin (Android) - Segment",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://www.twilio.com/docs/segment/connections/sources/catalog/libraries/mobile/android",
+      "title": "Analytics-Android (legacy) - Segment",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://www.twilio.com/docs/segment/connections/spec/common",
+      "title": "Spec: Common Fields - Segment",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "No Segment Play Data safety guide found. Legacy Analytics-Android (com.segment.analytics.android:analytics) reached end of support March 2026. Per the Common Fields spec, legacy Analytics-Android automatically adds app, device (incl. advertisingId), network, OS, screen, locale, timezone and userAgent context; IP is filled in by Segment's servers, not the device. Analytics-Kotlin sends SDK telemetry (setup, plugins, error details; no PII or event data) by default; disable with Telemetry.enable = false. Role assumes Segment itself; destinations may change the sharing answer."
+}

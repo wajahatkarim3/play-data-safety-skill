@@ -1,0 +1,40 @@
+{
+  "id": "firebase-messaging",
+  "name": "Firebase Cloud Messaging",
+  "vendor": "Google",
+  "category": "push-notifications",
+  "match": [
+    "com.google.firebase:firebase-messaging",
+    "com.google.firebase:firebase-messaging-ktx",
+    "com.google.firebase:firebase-messaging-directboot"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality"
+      ],
+      "when": "Always: Firebase installation ID (FID), a per-installation identifier, collected by the transitively included Firebase installations SDK (com.google.firebase:firebase-installations). FCM uses it to issue the registration token used to deliver messages.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    }
+  ],
+  "ask": [
+    "Do you send the FCM registration token to your own backend and link it to a user account? If yes, also consider Personal info / User IDs for the linkage your backend does.",
+    "Do you include Google Analytics for Firebase? FCM then logs notification interaction events through Analytics; make sure the firebase-analytics entry is declared.",
+    "Have you enabled BigQuery export of delivery metrics (setDeliveryMetricsExportToBigQuery(true))? Message delivery metrics are then exported.",
+    "Do your push payloads carry personal data (messages, names)? Declare those data types for your own server-side handling."
+  ],
+  "sources": [
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Firebase lists for FCM: application version (for topic subscribe/unsubscribe) and the Firebase user agent (device metadata, installer, SDK versions; 'never linked to a user or device identifier'). Neither maps cleanly to a Play data type, so they are not listed. The identifier comes from the firebase-installations dependency. firebase-messaging-directboot is on Google Maven but not named on the Firebase page; included in match because it is an FCM add-on. Firebase's page does not give a per-product collected/shared table; it states globally that Firebase does not transfer the listed data to third parties except to subprocessors that help provide Firebase services or per the developer's instructions (e.g. linking to non-Firebase services). On that basis shared=false and role=service-provider. The page lists raw data items (e.g. 'stack traces', 'IP address'), not Play data-type labels; the mapping to Play labels and purposes here is ours."
+}

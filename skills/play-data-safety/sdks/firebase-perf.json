@@ -1,0 +1,59 @@
+{
+  "id": "firebase-perf",
+  "name": "Firebase Performance Monitoring",
+  "vendor": "Google",
+  "category": "performance",
+  "match": [
+    "com.google.firebase:firebase-perf",
+    "com.google.firebase:firebase-perf-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: app performance metrics (app start time, network request latency), CPU/memory usage and relevant device metadata. Also custom traces, metrics and attributes if the developer instruments them.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: the IP address is collected to map performance events to the countries they originate from.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: Firebase installation ID (FID), a per-installation identifier, collected by the transitively included Firebase installations SDK (com.google.firebase:firebase-installations).",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    }
+  ],
+  "ask": [
+    "Do you add custom traces or custom attributes (putAttribute)? If attributes contain personal data (user IDs, emails, locations), declare those data types.",
+    "Performance Monitoring transitively includes Firebase Remote Config and Firebase sessions. Make sure the firebase-config entry is also declared."
+  ],
+  "sources": [
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Approximate location is our mapping of 'IP address ... to map performance events to the countries they originate from' (Play has no IP-address data type; IP used to derive location is usually declared as Approximate location). Depends on firebase-installations, firebase-config and firebase-sessions. Firebase's page does not give a per-product collected/shared table; it states globally that Firebase does not transfer the listed data to third parties except to subprocessors that help provide Firebase services or per the developer's instructions (e.g. linking to non-Firebase services). On that basis shared=false and role=service-provider. The page lists raw data items (e.g. 'stack traces', 'IP address'), not Play data-type labels; the mapping to Play labels and purposes here is ours."
+}

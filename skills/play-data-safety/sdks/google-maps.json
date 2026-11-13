@@ -1,0 +1,81 @@
+{
+  "id": "google-maps",
+  "name": "Maps SDK for Android",
+  "vendor": "Google",
+  "category": "maps",
+  "match": [
+    "com.google.android.gms:play-services-maps",
+    "com.google.maps.android:maps-compose",
+    "com.google.maps.android:maps-compose-utils",
+    "com.google.maps.android:maps-compose-widgets",
+    "com.google.maps.android:maps-ktx",
+    "com.google.maps.android:android-maps-utils",
+    "com.google.maps.android:maps-utils-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: stack traces for crashes within the SDK code and crash metrics such as abnormal terminations.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: request metadata including device metadata (OS version, name, model, brand, form factor), SDK build/version and number of results returned.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: a Maps SDK-specific pseudonymous identifier generated to measure daily active SDK users.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Only when the Map Camera APIs are used: interaction data such as panning and zooming the map.",
+      "sourceUrl": "https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Do you show the user's location on the map (setMyLocationEnabled / location layer) or send the user's location to your backend? The Maps SDK page does not list user location as collected, but your app's own use of location must be declared (Approximate or Precise location).",
+    "Do you also use the Places SDK, Directions, Geocoding or other Maps Platform APIs? Declare those separately (see google-places)."
+  ],
+  "sources": [
+    {
+      "url": "https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Maps SDK for Android)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.google.com/maps/documentation/android-sdk/maps-compose",
+      "title": "Maps Compose library (Maps SDK for Android)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Google publishes a Play data disclosure page for the Maps SDK, but it does not state whether data is shared, does not map items to Play purposes, and says the data is used to 'maintain and improve Google services' / 'understand SDK usage'. Purposes = Analytics and shared=false are our interpretation; reviewers should confirm, hence medium confidence. Google also lists the IP address ('to understand SDK usage and improve Google services'); Play has no IP data type and the page does not say it is used for location, so it is not mapped. maps-compose, maps-compose-utils, maps-compose-widgets, maps-ktx, android-maps-utils and maps-utils-ktx are wrappers that depend on play-services-maps, so the same disclosure applies; Google's 'Internal Usage Attribution Identifier' is used to understand usage of such support libraries."
+}

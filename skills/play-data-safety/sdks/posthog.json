@@ -1,0 +1,55 @@
+{
+  "id": "posthog",
+  "name": "PostHog Android SDK",
+  "vendor": "PostHog",
+  "category": "analytics",
+  "match": [
+    "com.posthog:posthog-android"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always by default: captureApplicationLifecycleEvents (Application Installed/Updated/Opened/Backgrounded), captureScreenViews ($screen) and captureDeepLinks (Deep Link Opened) all default to true, plus any events you capture().",
+      "sourceUrl": "https://posthog.com/docs/libraries/android"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. The SDK generates a random anonymous ID (UUID) used as the distinct ID until identify() is called.",
+      "sourceUrl": "https://posthog.com/docs/libraries/android"
+    }
+  ],
+  "ask": [
+    "Do you call PostHog.identify() with your own user ID? If yes, also declare Personal info / User IDs.",
+    "Do you pass person properties such as email or name to identify() (userProperties / userPropertiesSetOnce)? If yes, declare Personal info / Email address and/or Personal info / Name (and any other personal data you send).",
+    "Is session replay enabled (sessionReplay = true and 'Record user sessions' on in project settings)? It records the screen (wireframes by default; real screenshots if screenshot = true, which may contain sensitive content), and captures Logcat by default (captureLogcat = true). Text inputs and images are masked by default (maskAllTextInputs / maskAllImages = true). If enabled, declare App activity / App interactions and App info and performance / Diagnostics at least, and review whether unmasked screens show personal data, photos or messages.",
+    "Is error tracking autocapture enabled (errorTrackingConfig.autoCapture = true, default false)? If yes, declare App info and performance / Crash logs.",
+    "The fetched PostHog Android docs do not describe IP or GeoIP handling. If your PostHog project enriches events with GeoIP (city/country), declare Location / Approximate location."
+  ],
+  "sources": [
+    {
+      "url": "https://posthog.com/docs/libraries/android",
+      "title": "Android - Docs - PostHog",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://posthog.com/docs/session-replay/android",
+      "title": "Android session replay - Docs - PostHog",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "PostHog does not publish a Google Play Data safety guide for Android; entries are mapped from its SDK docs. No vendor statement on sharing was found; treated as a service provider (processes data on the developer's behalf). Self-hosted PostHog sends data to the developer's own server."
+}

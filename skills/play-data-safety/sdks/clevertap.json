@@ -1,0 +1,36 @@
+{
+  "id": "clevertap",
+  "name": "CleverTap Android SDK",
+  "vendor": "CleverTap",
+  "category": "engagement",
+  "match": [
+    "com.clevertap.android:clevertap-android-sdk",
+    "com.clevertap.android:clevertap-geofence-sdk",
+    "com.clevertap.android:push-templates"
+  ],
+  "role": "service-provider",
+  "dataTypes": [],
+  "ask": [
+    "CleverTap's Data safety page says no data types are collected by default, but the same page's Android FAQ says the SDK tracks device model, cellular carrier, country code, timezone, Wi-Fi/Bluetooth info and device dimensions/name. Do you track events or user profiles (onUserLogin, pushEvent, App Launched)? If yes, declare App activity / App interactions and Device or other IDs (the CleverTap profile/device ID), purposes Analytics plus any marketing use.",
+    "Do you send identity or profile fields (Identity, Email, Name, Phone, gender, DOB) via onUserLogin / pushProfile? Declare Personal info / User IDs, Email address, Name, Phone number as applicable.",
+    "Have you enabled Device Network Information Reporting? If yes (Android SDK 3.1.9+ disables it by default), declare Location / Approximate location.",
+    "Do you integrate the CleverTap GeoFencing SDK (clevertap-geofence-sdk)? If yes, declare Location / Precise location.",
+    "Do you send charged/purchase events? If yes, declare Financial info / Purchase history.",
+    "Do you send any other category (health, messages, files, calendar, contacts, crash data) as event or profile properties? Declare exactly what you send; CleverTap says photos, videos and audio cannot be sent.",
+    "Do you use CleverTap for push/in-app campaigns? Add Developer communications and/or Advertising or marketing as purposes."
+  ],
+  "sources": [
+    {
+      "url": "https://developer.clevertap.com/docs/google-playstore-data-safety",
+      "title": "Google Play Store Data Safety - CleverTap Developer Docs",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://clevertap.com/blog/google-play-data-safety/",
+      "title": "Google Play Data Safety (CleverTap blog)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Vendor publishes a Play Data safety page, but it states that nothing is collected by default while its own FAQ lists device data the Android SDK tracks automatically, so dataTypes is left empty and everything goes through ask. Confidence lowered to medium for that inconsistency; most real integrations will need App interactions and Device or other IDs. CleverTap: does not share data with third parties; SDK encrypts all data in transit; deletion via the Delete User API."
+}

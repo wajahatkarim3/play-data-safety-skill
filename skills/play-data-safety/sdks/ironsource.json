@@ -1,0 +1,83 @@
+{
+  "id": "ironsource",
+  "name": "Unity LevelPlay (ironSource Mediation)",
+  "vendor": "Unity Technologies (ironSource)",
+  "category": "ads",
+  "match": [
+    "com.unity3d.ads-mediation:mediation-sdk",
+    "com.ironsource.sdk:mediationsdk"
+  ],
+  "role": "third-party",
+  "dataTypes": [
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance",
+        "Advertising or marketing"
+      ],
+      "when": "Always (required, not ephemeral).",
+      "sourceUrl": "https://docs.unity.com/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire"
+    },
+    {
+      "type": "App activity / Other actions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance",
+        "Advertising or marketing"
+      ],
+      "when": "Always. Unity describes it as 'Other actions (interaction with ads)'.",
+      "sourceUrl": "https://docs.unity.com/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance",
+        "Advertising or marketing"
+      ],
+      "when": "Always. Collected but NOT shared per Unity's table.",
+      "sourceUrl": "https://docs.unity.com/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Fraud prevention, security, and compliance",
+        "Advertising or marketing"
+      ],
+      "when": "Always (required, not ephemeral).",
+      "sourceUrl": "https://docs.unity.com/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire"
+    }
+  ],
+  "ask": [
+    "Which ad networks are mediated through LevelPlay (AppLovin, Unity Ads, Meta, AdMob, etc.)? Each mediated network SDK needs its own disclosure; this entry covers the LevelPlay/ironSource SDK only.",
+    "Do you use the LevelPlay Ad Quality SDK (com.unity3d.ads-mediation:adquality-sdk / legacy com.ironsource:adqualitysdk)? It is not covered by this entry."
+  ],
+  "sources": [
+    {
+      "url": "https://docs.unity.com/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire",
+      "title": "Google Data Safety Questionnaire (Unity LevelPlay)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://docs.unity.com/en-us/grow/levelplay/sdk/android/maven-central-migration-guide",
+      "title": "LevelPlay Maven Central migration guide (old and new coordinates)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Unity states data is encrypted in transit and users can request deletion. Legacy coordinate com.ironsource.sdk:mediationsdk (is.com repo) was replaced by com.unity3d.ads-mediation:mediation-sdk on Maven Central from 7.9.0. Role is third-party, but note Diagnostics is marked collected-not-shared."
+}

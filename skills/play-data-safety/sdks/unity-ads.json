@@ -1,0 +1,115 @@
+{
+  "id": "unity-ads",
+  "name": "Unity Ads",
+  "vendor": "Unity Technologies",
+  "category": "ads",
+  "match": [
+    "com.unity3d.ads:unity-ads"
+  ],
+  "role": "third-party",
+  "dataTypes": [
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "App functionality",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always. Unity marks it collected, shared, not ephemeral, required. Precise location is not collected.",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety"
+    },
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality"
+      ],
+      "when": "Always. Unity's table row is 'Personal identifiers' (collected, shared, required, purpose App functionality); mapped here to Play's User IDs label.",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety"
+    },
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics"
+      ],
+      "when": "Always per Unity's table (collected, shared, required).",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always, but only page views and taps inside the ad experience, not during gameplay.",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety"
+    },
+    {
+      "type": "App activity / Other actions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Only when Acquire Optimization is enabled in the Unity Monetization dashboard (app usage times, to measure retention). Unity's row is 'Other app activity'.",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety",
+      "conditional": true
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics"
+      ],
+      "when": "Always. Crash logs and other app performance data are not collected.",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "App functionality",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always.",
+      "sourceUrl": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety"
+    }
+  ],
+  "ask": [
+    "Is Acquire Optimization enabled for this app in the Unity Monetization dashboard? If not, App activity / Other actions (app usage times) can be omitted.",
+    "Do you use other Unity services (LevelPlay mediation, Analytics, Push, etc.) or mediated ad networks? Each has its own disclosure; this entry covers the Unity Ads SDK only."
+  ],
+  "sources": [
+    {
+      "url": "https://docs.unity.com/en-us/grow/ads/privacy/google-data-safety",
+      "title": "Google Play data safety section for Unity Ads",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Unity states data is encrypted in transit and users can request deletion. Unity's 'Personal identifiers' row was mapped to 'Personal info / User IDs'; a reviewer may decide it duplicates Device or other IDs, but declaring it matches Unity's published answer. The page shows only a relative 'last updated' date."
+}

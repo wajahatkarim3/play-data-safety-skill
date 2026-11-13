@@ -1,0 +1,86 @@
+{
+  "id": "admob",
+  "name": "Google Mobile Ads SDK (AdMob)",
+  "vendor": "Google",
+  "category": "advertising",
+  "match": [
+    "com.google.android.gms:play-services-ads",
+    "com.google.android.gms:play-services-ads-lite",
+    "com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk"
+  ],
+  "role": "third-party",
+  "dataTypes": [
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: the device IP address is collected and may be used to estimate the general location of the device.",
+      "sourceUrl": "https://developers.google.com/admob/android/privacy/play-data-disclosure"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: user product interactions, including app launch, taps and video views.",
+      "sourceUrl": "https://developers.google.com/admob/android/privacy/play-data-disclosure"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: performance information about the app and SDK, including app launch time, hang rate and energy usage.",
+      "sourceUrl": "https://developers.google.com/admob/android/privacy/play-data-disclosure"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": true,
+      "ephemeral": false,
+      "purposes": [
+        "Advertising or marketing",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: Android advertising ID (unless the app removes AD_ID via the manifest, or features like Limited Ads disable it), app set ID, and, if applicable, other identifiers related to signed-in accounts on the device.",
+      "sourceUrl": "https://developers.google.com/admob/android/privacy/play-data-disclosure"
+    }
+  ],
+  "ask": [
+    "Do you use AdMob mediation? Each mediated ad network adapter (Meta Audience Network, AppLovin, Unity Ads, ironSource...) has its own SDK and its own Data safety disclosure; declare those too.",
+    "Do you pass location or other user data to ad requests (e.g. setLocation in older SDKs, custom targeting, publisher-provided IDs)? If yes, declare it. See Google's precise location data policy for AdMob.",
+    "Do you use optional features such as advanced reporting, or take part in tests of new features? Google says these may require additional disclosures.",
+    "Is your app in the Families program or child-directed? Ad ID handling and Limited Ads change what is sent."
+  ],
+  "sources": [
+    {
+      "url": "https://developers.google.com/admob/android/privacy/play-data-disclosure",
+      "title": "Google Play data disclosure (Google Mobile Ads SDK for Android, Legacy)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.google.com/admob/android/next-gen/privacy/play-data-disclosure",
+      "title": "Google Play data disclosure (GMA Next-Gen SDK for Android)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Google states the SDK 'collects and shares the following data types automatically for advertising, analytics, and fraud prevention purposes' (IP address, user product interactions, diagnostic information, device and account identifiers). Both the legacy SDK page (v25.5.0) and the GMA Next-Gen SDK page list the same four items. IP address is mapped to Approximate location because Google says it 'may be used to estimate the general location of a device'. Purposes are applied to every type as Google states them for the set as a whole. Data encrypted in transit with TLS. play-services-ads-lite is the 'Lightweight version of Google Mobile Ads' listed in Google Play services setup; the disclosure page does not mention it separately, so treat it as the same SDK. play-services-ads-identifier is NOT matched: it only reads the advertising ID and is not AdMob."
+}

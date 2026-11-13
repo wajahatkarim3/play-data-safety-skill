@@ -1,0 +1,32 @@
+{
+  "id": "supabase",
+  "name": "Supabase Kotlin client (supabase-kt)",
+  "vendor": "Supabase community (Jan Tennert) / Supabase",
+  "category": "backend",
+  "match": [
+    "io.github.jan-tennert.supabase:*"
+  ],
+  "role": "service-provider",
+  "dataTypes": [],
+  "ask": [
+    "Do you use Supabase Auth (auth-kt / compose-auth)? If yes, declare the identifiers you sign users in with: Personal info / Email address and/or Phone number, and Personal info / User IDs, for Account management and App functionality. Social sign-in may add Name.",
+    "What do you store in Postgres tables (postgrest-kt) and Realtime channels? Declare every data type you write there (e.g. Name, Address, Messages / Other in-app messages, App activity, Health info) with the purposes you use it for.",
+    "Do you upload files to Supabase Storage (storage-kt)? If yes, declare Photos and videos / Photos or Videos, Audio files, or Files and docs as applicable.",
+    "Do Edge Functions (functions-kt) forward data to third parties for their own use? If yes, mark those data types as shared.",
+    "Do you offer account/data deletion? Play requires an account-deletion path for apps that let users create accounts."
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/supabase-community/supabase-kt",
+      "title": "supabase-kt README (modules, Maven coordinates, community status)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://supabase.com/privacy",
+      "title": "Supabase Privacy Notice (Customer Data processed as processor)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "low",
+  "notes": "No Play Data safety guide exists for Supabase or supabase-kt, and the supabase-kt README says nothing about library telemetry. Supabase's Privacy Notice says it processes Customer Data (e.g. data about end users of apps built on Supabase) primarily as a processor on the customer's instructions, so Supabase is a service provider and data stored there counts as collected by your app, not shared. Everything depends on what the developer sends, so all items are in 'ask'. supabase-kt is community-maintained ('working towards making supabase-kt official'). Module names: auth-kt (gotrue-kt before 3.0.0), postgrest-kt, storage-kt, realtime-kt, functions-kt, compose-auth, compose-auth-ui, apollo-graphql, coil/coil3/imageloader integrations, bom."
+}

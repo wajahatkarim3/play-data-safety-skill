@@ -1,0 +1,55 @@
+{
+  "id": "ml-kit",
+  "name": "ML Kit (on-device)",
+  "vendor": "Google",
+  "category": "machine-learning",
+  "match": [
+    "com.google.mlkit:*",
+    "com.google.android.gms:play-services-mlkit*",
+    "com.google.android.gms:play-services-code-scanner"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always (all features): device information (manufacturer, model, OS version, build, ML hardware accelerators), app package name and version, performance metrics (latency), API configuration, input/output size, feature version, event types and error codes; used for diagnostics and usage analytics.",
+      "sourceUrl": "https://developers.google.com/ml-kit/android-data-disclosure"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: per-installation identifiers not intended to uniquely identify a user or device. Thin (Play services) features also send a device identifier; GenAI features may send user, device or other identifiers. Used for diagnostics and usage analytics.",
+      "sourceUrl": "https://developers.google.com/ml-kit/android-data-disclosure"
+    }
+  ],
+  "ask": [
+    "Do you send images, text, faces, barcode contents or ML results to your own server? ML Kit processes them on-device, but anything your app transmits must be declared (e.g. Photos, Messages, Files and docs).",
+    "Do you use custom models hosted via Firebase Model Deployment (com.google.mlkit:linkfirebase)? Also review the Firebase ML model downloader and Firebase installations disclosures.",
+    "Do you use object detection, pose detection, smart reply or translate? These use Firebase Remote Config and Firebase installations; make sure the firebase-config entry is also declared."
+  ],
+  "sources": [
+    {
+      "url": "https://developers.google.com/ml-kit/android-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (ML Kit for Android)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://developers.google.com/ml-kit",
+      "title": "ML Kit (Google for Developers)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Google states ML Kit encrypts collected data in transit with HTTPS and 'does not transfer this data to third-parties' (shared=false). ML Kit's home page says 'ML Kit's processing happens on-device' and can be used for images and text 'that need to remain on the device'; the disclosure page lists only telemetry, not the images/text being processed. Feature-specific extras (all diagnostics): custom models send model name/version/URI; entity extraction, digital ink, language ID, translate and GenAI send configured or identified languages; barcode auto-zoom sends a session ID, zoom levels and bounding-box coordinates. Mapping of this telemetry to Diagnostics and Device or other IDs is ours; Google uses the phrase 'Device or other identifiers' directly."
+}

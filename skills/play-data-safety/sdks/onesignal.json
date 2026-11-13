@@ -1,0 +1,66 @@
+{
+  "id": "onesignal",
+  "name": "OneSignal Android SDK",
+  "vendor": "OneSignal",
+  "category": "engagement",
+  "match": [
+    "com.onesignal:OneSignal",
+    "com.onesignal:core",
+    "com.onesignal:notifications",
+    "com.onesignal:in-app-messages",
+    "com.onesignal:location"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics",
+        "Developer communications"
+      ],
+      "when": "Always: sessions, session durations and notification clicks.",
+      "sourceUrl": "https://documentation.onesignal.com/docs/google-play-data-safety-requirements"
+    },
+    {
+      "type": "Financial info / Purchase history",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "If your app has in-app purchases (OneSignal collects them regardless of other features).",
+      "sourceUrl": "https://documentation.onesignal.com/docs/google-play-data-safety-requirements",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "OneSignal's data-collected page lists push tokens, IP address, device model, language, timezone and country as collected automatically, but its Data safety page only lists Device or other IDs when you use Aliases. Push tokens are commonly treated as device identifiers: consider declaring Device or other IDs (App functionality).",
+    "Do you share location with OneSignal (com.onesignal:location, location sharing enabled and user accepts)? If yes, declare Location / Precise location.",
+    "Do you call login() with an external ID or set Aliases? If yes, declare Personal info / User IDs and Device or other IDs.",
+    "Do you add an email address or SMS phone number to OneSignal? If yes, declare Personal info / Email address and/or Personal info / Phone number.",
+    "Do you send names or other personal info via Tags or Outcomes? Declare Personal info / Name, Other info, App activity / Other user-generated content or Other actions as applicable."
+  ],
+  "sources": [
+    {
+      "url": "https://documentation.onesignal.com/docs/google-play-data-safety-requirements",
+      "title": "Google Play Data Safety requirements - OneSignal",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://documentation.onesignal.com/docs/data-collected-by-the-onesignal-sdk",
+      "title": "Data collected by the OneSignal SDK",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://onesignal.com/blog/google-play-data-safety-compliance/",
+      "title": "Google Play Data Safety compliance (OneSignal blog)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "OneSignal says its Android SDK does not share data with data brokers or for targeted advertising/ads measurement, and Android Native SDK 4.0+ no longer collects the Google Advertising ID. OneSignal does not store IP addresses for EU users. Sharing/encryption answers appear only as screenshots on the vendor page."
+}

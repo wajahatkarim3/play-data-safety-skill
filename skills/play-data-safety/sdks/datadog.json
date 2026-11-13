@@ -1,0 +1,88 @@
+{
+  "id": "datadog",
+  "name": "Datadog Android SDK (RUM, Logs, Trace, Session Replay)",
+  "vendor": "Datadog",
+  "category": "monitoring",
+  "match": [
+    "com.datadoghq:dd-sdk-android-*"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "With RUM: view events and action events (taps, application start, target element for automatic actions).",
+      "sourceUrl": "https://docs.datadoghq.com/real_user_monitoring/android/data_collected/"
+    },
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "With RUM: error events with message, stack trace, crash flag and ANR category.",
+      "sourceUrl": "https://docs.datadoghq.com/real_user_monitoring/android/data_collected/"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "With RUM: device (brand, model, type), OS, connectivity and carrier info on events; memory usage per view.",
+      "sourceUrl": "https://docs.datadoghq.com/real_user_monitoring/android/data_collected/"
+    },
+    {
+      "type": "App info and performance / Other app performance data",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "With RUM: resource timings (DNS, TLS, first byte, download), view load times and long tasks.",
+      "sourceUrl": "https://docs.datadoghq.com/real_user_monitoring/android/data_collected/"
+    },
+    {
+      "type": "Location / Approximate location",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "By default. Country, subdivision and city are derived server-side from the client IP (no GPS). Can be disabled with the geolocation toggle in the RUM application settings.",
+      "sourceUrl": "https://docs.datadoghq.com/real_user_monitoring/android/data_collected/"
+    }
+  ],
+  "ask": [
+    "Do you call setUserInfo() with id, name or email? If yes, declare Personal info / User IDs, Name and/or Email address.",
+    "Did you leave client IP collection on in the RUM application settings? Datadog records session.ip; if you keep geolocation, Location / Approximate location stays declared.",
+    "Do you use Session Replay (dd-sdk-android-session-replay*)? It records the screen; review the privacy/masking level so personal data is not captured, and declare App activity / App interactions.",
+    "Do you use Logs or Trace (dd-sdk-android-logs / -trace) and do those logs or spans contain personal data or request URLs with user identifiers? Declare whatever they contain.",
+    "Do resource URLs (tracked via dd-sdk-android-okhttp / cronet) contain personal data? They are sent with resource events."
+  ],
+  "sources": [
+    {
+      "url": "https://docs.datadoghq.com/real_user_monitoring/android/data_collected/",
+      "title": "RUM Android Data Collected - Datadog",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://docs.datadoghq.com/real_user_monitoring/android/",
+      "title": "RUM Android and Android TV Monitoring Setup - Datadog",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "No Datadog Play Data safety guide found; mapped from 'RUM Android Data Collected'. The match wildcard also matches dd-sdk-android-gradle-plugin (build-time only, collects nothing at runtime). Tracking consent defaults to PENDING (batched, not sent until GRANTED). Data is cached unencrypted in the app's cache dir before upload. The fetched page does not list a persistent device/anonymous user ID; verify against your SDK version before deciding on Device or other IDs."
+}

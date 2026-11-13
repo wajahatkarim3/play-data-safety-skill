@@ -1,0 +1,79 @@
+{
+  "id": "firebase-auth",
+  "name": "Firebase Authentication",
+  "vendor": "Google",
+  "category": "authentication",
+  "match": [
+    "com.google.firebase:firebase-auth",
+    "com.google.firebase:firebase-auth-ktx"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Whenever a user signs in (including anonymous sign-in): Firebase Auth generates and stores a unique Firebase Authentication user ID.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    },
+    {
+      "type": "Personal info / Email address",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Only if the app uses email/password, email-link, or a federated provider whose response contains an email address.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "conditional": true
+    },
+    {
+      "type": "Personal info / Phone number",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Only if the app uses phone authentication, phone number as a sign-in method, or SMS as a second factor.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "conditional": true
+    },
+    {
+      "type": "Personal info / Name",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Account management"
+      ],
+      "when": "Only if the developer sets a display name, or a federated provider supplies one.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Which sign-in methods do you enable (anonymous, email/password, email link, phone, Google, Facebook, Apple, etc.)? Remove Email address / Phone number entries that do not apply.",
+    "Do you use third-party providers (Facebook, Twitter, GitHub...)? Firebase collects contact information from those providers depending on granted scopes; check that provider's own disclosure and any extra data (e.g. profile photo).",
+    "Do you use phone auth? It also uses Play Integrity / reCAPTCHA Enterprise tokens; review those SDKs' disclosures.",
+    "Do you offer in-app account deletion? Play requires a deletion path for apps that let users create accounts."
+  ],
+  "sources": [
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Firebase also lists automatic collection of the IP address 'to provide added security and prevent abuse during sign-up and authentication', user-agent strings, the Firebase Android App ID and the Firebase user agent. Play has no IP-address data type and this IP use is not location; it is not mapped here, but reviewers may choose to add the 'Fraud prevention, security, and compliance' purpose. Purpose source: Firebase says the data is used 'to enable authentication and account management'. Firebase's page does not give a per-product collected/shared table; it states globally that Firebase does not transfer the listed data to third parties except to subprocessors that help provide Firebase services or per the developer's instructions (e.g. linking to non-Firebase services). On that basis shared=false and role=service-provider. The page lists raw data items (e.g. 'stack traces', 'IP address'), not Play data-type labels; the mapping to Play labels and purposes here is ours."
+}

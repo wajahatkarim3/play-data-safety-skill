@@ -1,0 +1,89 @@
+{
+  "id": "sentry",
+  "name": "Sentry Android SDK",
+  "vendor": "Sentry",
+  "category": "crash-reporting",
+  "match": [
+    "io.sentry:sentry-android",
+    "io.sentry:sentry-android-*"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. Error and crash reports are the SDK's core function.",
+      "sourceUrl": "https://docs.sentry.io/security-legal-pii/security/mobile-privacy/"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always by default. Device context (manufacturer, model, architecture, display, timezone, memory size, emulator status) plus dynamic fields (battery, available memory, storage, connectivity) unless collectAdditionalContext = false.",
+      "sourceUrl": "https://docs.sentry.io/platforms/android/data-management/data-collected/"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always. A random installation ID generated per app install (not ANDROID_ID), used when no user ID is set; resets on reinstall.",
+      "sourceUrl": "https://docs.sentry.io/platforms/android/data-management/data-collected/"
+    },
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "By default the Android SDK records automatic breadcrumbs, including user-interaction (click) breadcrumbs, attached to events. Can be turned off with io.sentry.breadcrumbs.user-interaction = false in the manifest.",
+      "sourceUrl": "https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/"
+    }
+  ],
+  "ask": [
+    "Do you call Sentry.setUser() with a user ID, username or email? If yes, declare Personal info / User IDs and/or Personal info / Email address.",
+    "Is dataCollection.userInfo left at its default (true)? The SDK then sends '{{auto}}' so Sentry infers the client IP address and integrations may populate user identity info. Decide whether to disable it; if you keep it and Sentry derives location from IP, declare Location / Approximate location.",
+    "Do you use Sentry performance monitoring / tracing? If yes, declare App info and performance / Other app performance data.",
+    "Is Session Replay enabled (sentry-android includes sentry-android-replay; recording is driven by sessionSampleRate / onErrorSampleRate)? It captures screenshots of the screen plus taps, swipes, network requests and console entries. Text, images, user input and webviews are masked by default. If enabled, declare App activity / App interactions and review whether unmasked content shows personal data.",
+    "HTTP integrations (e.g. OkHttp) collect request URLs, headers (deny-list filtered), query strings, cookies and, where supported, bodies by default. Do your API calls carry personal data (emails, names, messages, etc.)? If yes, either disable via dataCollection options or declare those data types.",
+    "Do you add attachments, logs or breadcrumbs that contain personal data? Declare whatever they contain."
+  ],
+  "sources": [
+    {
+      "url": "https://docs.sentry.io/security-legal-pii/security/mobile-privacy/",
+      "title": "Data Privacy for Mobile (Sentry)",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://docs.sentry.io/platforms/android/data-management/data-collected/",
+      "title": "Data Collected - Sentry for Android",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/",
+      "title": "Breadcrumbs - Sentry for Android",
+      "checked": "2026-11-13"
+    },
+    {
+      "url": "https://docs.sentry.io/platforms/android/session-replay/",
+      "title": "Session Replay - Sentry for Android",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "medium",
+  "notes": "Sentry has no Google Play Data safety table; its mobile privacy FAQ says developers must disclose all data sent to Sentry. Sentry processes the data you send to provide its service and 'does not cause your app to contain any ads'; treated as service provider. Self-hosted Sentry sends data to the developer's own server."
+}

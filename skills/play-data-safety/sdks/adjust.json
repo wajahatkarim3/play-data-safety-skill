@@ -1,0 +1,54 @@
+{
+  "id": "adjust",
+  "name": "Adjust Android SDK",
+  "vendor": "Adjust",
+  "category": "attribution",
+  "match": [
+    "com.adjust.sdk:adjust-android",
+    "com.adjust.sdk:adjust-android-webbridge"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App activity / App interactions",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always: sessions and app launches are collected by default. Adjust's page says 'App activity' without naming the Play sub-type; App interactions is the closest. Other usage data depends on your configuration.",
+      "sourceUrl": "https://help.adjust.com/en/article/google-play-data-safety"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "App functionality",
+        "Analytics",
+        "Fraud prevention, security, and compliance"
+      ],
+      "when": "Always (unless the user is opted out via COPPA / Google Play kids settings): Google Advertising ID, falling back to Android ID; IMEI or OAID only with the corresponding plugins.",
+      "sourceUrl": "https://help.adjust.com/en/article/google-play-data-safety"
+    }
+  ],
+  "ask": [
+    "Do you use Adjust purchase verification or send revenue/purchase events? If yes, declare Financial info / Purchase history.",
+    "Do you send email addresses, user IDs or other personal data via callback/partner parameters (even hashed)? If yes, declare the matching Personal info types.",
+    "Do you forward Adjust data to ad networks / partners or use it for advertising, developer communications or personalization? Adjust marks Advertising or marketing, Developer communications and Personalization as optional purposes that depend on your integration; if data goes to partners for their own use, mark it shared.",
+    "Do you track custom in-app events? If yes, consider App activity / Other actions as well."
+  ],
+  "sources": [
+    {
+      "url": "https://help.adjust.com/en/article/google-play-data-safety",
+      "title": "Google Play Data Safety (Adjust Help Center)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Adjust says all data is sent over HTTPS and deletion can be requested. Adjust's Data safety page does not itself state Adjust's legal role; service-provider is assumed because Adjust processes attribution data on the app developer's behalf. It also says data is not transferred to other apps on the device but 'this may not be the case for partners'. Location, other personal info, diagnostics etc. are 'No' by default."
+}

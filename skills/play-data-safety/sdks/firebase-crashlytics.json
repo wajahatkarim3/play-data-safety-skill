@@ -1,0 +1,74 @@
+{
+  "id": "firebase-crashlytics",
+  "name": "Firebase Crashlytics",
+  "vendor": "Google",
+  "category": "crash-reporting",
+  "match": [
+    "com.google.firebase:firebase-crashlytics",
+    "com.google.firebase:firebase-crashlytics-ktx",
+    "com.google.firebase:firebase-crashlytics-ndk"
+  ],
+  "role": "service-provider",
+  "dataTypes": [
+    {
+      "type": "App info and performance / Crash logs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: stack traces are collected when the app crashes. Also any developer-recorded non-fatal events with custom stack traces.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    },
+    {
+      "type": "App info and performance / Diagnostics",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: relevant application state and point-in-time device metadata at crash time; the transitively included Firebase sessions SDK also collects app metadata, device metadata (manufacturer, model) and usage metrics such as foreground time.",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    },
+    {
+      "type": "Device or other IDs / Device or other IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Always: Crashlytics generates and stores a Crashlytics installation UUID to measure users affected by a crash. Firebase installation ID (FID), a per-installation identifier, collected by the transitively included Firebase installations SDK (com.google.firebase:firebase-installations).",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure"
+    },
+    {
+      "type": "Personal info / User IDs",
+      "collected": true,
+      "shared": false,
+      "ephemeral": false,
+      "purposes": [
+        "Analytics"
+      ],
+      "when": "Only if the app attaches a user ID to crash reports (setUserId).",
+      "sourceUrl": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "conditional": true
+    }
+  ],
+  "ask": [
+    "Do you call setUserId() on Crashlytics? If no, remove Personal info / User IDs.",
+    "Do you attach custom keys or logs (setCustomKey / log) to crash reports? If they contain personal data (email, name, location, content), declare those data types too.",
+    "Do you also include Google Analytics for Firebase? Crashlytics then uses Analytics 'breadcrumb' logs (user actions before a crash); make sure the firebase-analytics entry is declared.",
+    "Do you also include Remote Config? Crashlytics then collects Remote Config rollout metadata (developer-defined)."
+  ],
+  "sources": [
+    {
+      "url": "https://firebase.google.com/docs/android/play-data-disclosure",
+      "title": "Prepare for Google Play's data disclosure requirements (Firebase)",
+      "checked": "2026-11-13"
+    }
+  ],
+  "confidence": "high",
+  "notes": "Purposes are our mapping: Firebase says the data is used 'to enable crash reporting and crash management services'. Some developers also select App functionality; Analytics is the usual Play mapping for crash diagnostics. Depends on firebase-installations and firebase-sessions (both transitive), whose data is folded in above. Firebase's page does not give a per-product collected/shared table; it states globally that Firebase does not transfer the listed data to third parties except to subprocessors that help provide Firebase services or per the developer's instructions (e.g. linking to non-Firebase services). On that basis shared=false and role=service-provider. The page lists raw data items (e.g. 'stack traces', 'IP address'), not Play data-type labels; the mapping to Play labels and purposes here is ours."
+}
