@@ -13,6 +13,9 @@
     <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
     <img src="https://img.shields.io/badge/SDKs%20covered-36-3DDC84.svg"/>
     <img src="https://img.shields.io/badge/JDK-17%2B-orange.svg"/>
+    <a href="https://www.wajahatkarim.com/2026/11/stop-filling-play-data-safety-manually">
+        <img src="https://img.shields.io/badge/read-the%20story-1F8F6A.svg"/>
+    </a>
     <!-- PRs Welcome -->
     <a href="#-how-to-contribute">
         <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/>
@@ -48,10 +51,17 @@ Play Console imports in one click.
 
 ## 🤔 Why
 
-Every app on Google Play must complete the Data safety form: 13 categories, 38 data types, and seven
-questions for each type you declare. The answers have to cover what your code **and every library
-it pulls in** collect. Most developers fill it in once, from memory, and never touch it again,
-until a new SDK makes it wrong and Play rejects an update.
+Every app on Google Play must complete the Data safety section: 10+ screens of forms, with seven
+questions for each data type you declare, in a slow and annoying UI. Play Console lets you skip all
+of that with **Import from CSV**, but the file is ~780 rows of machine IDs and Play rejects it over
+the smallest formatting mistake.
+
+I first built this for [NowKit](https://kit.shipkaro.dev) to generate the exact CSV Play accepts. I've
+used it in all my apps, and students of the [shipkaro weekend](https://1dayapp.shipkaro.dev) program
+have used it for 30+ apps now live on Google Play. This repo is that tool, open sourced for every
+Android developer.
+
+📖 **Read the full story:** [Stop filling the Google Play Data safety form manually](https://www.wajahatkarim.com/2026/11/stop-filling-play-data-safety-manually)
 
 <br/>
 
