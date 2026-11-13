@@ -10,7 +10,7 @@
 
 <div align="center">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
-    <img src="https://img.shields.io/badge/SDKs%20covered-38-3DDC84.svg"/>
+    <img src="https://img.shields.io/badge/SDKs%20covered-36-3DDC84.svg"/>
     <img src="https://img.shields.io/badge/JDK-17%2B-orange.svg"/>
     <!-- PRs Welcome -->
     <a href="#-how-to-contribute">
@@ -171,11 +171,11 @@ included. You arrive with an idea and leave with a Play Store submission.
 
 ## 📦 SDKs Covered
 
-38 SDKs, each mapped to Play's data types with the vendor's own source:
+36 SDKs, each mapped to Play's data types with the vendor's own source:
 
 - **Google:** Firebase (Analytics, Crashlytics, Performance, Messaging, Auth, Firestore, Remote Config), AdMob, Play Billing, Sign in with Google, Maps, Places, ML Kit
-- **Analytics & monitoring:** PostHog, Sentry, Amplitude, Mixpanel, Segment, BugSnag, Datadog, Luciq (Instabug)
-- **Engagement:** Braze, CleverTap, Airship, OneSignal, Intercom
+- **Analytics & monitoring:** PostHog, Sentry, Amplitude, Mixpanel, Segment, BugSnag, Datadog
+- **Engagement:** Braze, CleverTap, Airship, OneSignal
 - **Ads & attribution:** Meta (Facebook SDK, Audience Network), Unity Ads, AppLovin, ironSource, AppsFlyer, Adjust, Branch
 - **Payments & backend:** RevenueCat, Adapty, Stripe, Supabase
 
@@ -184,7 +184,7 @@ included. You arrive with an idea and leave with a Play Store submission.
 <br/>
 
 <!-- SDK-TABLE:START -->
-38 SDKs.
+36 SDKs.
 
 | SDK | Vendor | Role | Confidence | Checked |
 |---|---|---|---|---|
@@ -209,8 +209,6 @@ included. You arrive with an idea and leave with a Play Store submission.
 | [Google Analytics for Firebase](https://support.google.com/analytics/answer/11582702) | Google | Service provider | high | 2026-11-13 |
 | [Google Mobile Ads SDK (AdMob)](https://developers.google.com/admob/android/privacy/play-data-disclosure) | Google | Shares data | high | 2026-11-13 |
 | [Google Play Billing Library](https://support.google.com/googleplay/android-developer/answer/10787469) | Google | Service provider | medium | 2026-11-13 |
-| [Intercom Android SDK](https://www.intercom.com/help/en/articles/7669340-mobile-sdk-faqs) | Intercom | Service provider | low | 2026-11-13 |
-| [Luciq (formerly Instabug) Android SDK](https://docs.luciq.ai/android/set-up-luciq-for-android/logs-and-profiling/report-logs-for-android) | Luciq (formerly Instabug) | Service provider | low | 2026-11-13 |
 | [Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure) | Google | Service provider | medium | 2026-11-13 |
 | [Meta Audience Network SDK](https://developers.facebook.com/blog/post/2022/07/18/resources-for-completing-app-store-data-practice-questionnaires-apps-facebook-or-audience-network-sdk) | Meta | Shares data | medium | 2026-11-13 |
 | [Mixpanel Android SDK](https://docs.mixpanel.com/docs/tracking-methods/sdks/android) | Mixpanel | Service provider | medium | 2026-11-13 |
