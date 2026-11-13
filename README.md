@@ -1,9 +1,39 @@
-# play-data-safety
+<h1 align="center">🛡️ Play Data Safety</h1>
+<h4 align="center">Fill Google Play's Data safety form from your Android app's real code, not from memory.<br/>An agent skill and <code>/data-safety</code> command for Claude Code, Gemini CLI, Codex, Cursor, OpenCode and Antigravity.</h4>
+<div align="center"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fwajahatkarim3%2Fplay-data-safety-skill&text=Fill%20Google%20Play%27s%20Data%20safety%20form%20from%20your%20Android%20app%27s%20real%20code%2C%20not%20from%20memory.%20Free%20agent%20skill%20for%20Claude%20Code%2C%20Gemini%20CLI%2C%20Codex%20and%20Cursor&hashtags=android%2Cgoogleplay%2Cai%2Copensource">
+        <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"/>
+    </a> <a href="https://twitter.com/WajahatKarim">
+        <img src="https://img.shields.io/twitter/follow/WajahatKarim?style=social"/>
+    </a>
+</div>
+<br/>
 
-**Fill in Google Play's Data safety form from your app's real code, not from memory.**
-An agent skill and `/data-safety` command for Claude Code, Gemini CLI, Codex, Cursor, OpenCode and
-Antigravity. It scans your Android project, asks you only what code can't reveal, and writes the CSV
-that Play Console imports in one click.
+<div align="center">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+    <img src="https://img.shields.io/badge/SDKs%20covered-38-3DDC84.svg"/>
+    <img src="https://img.shields.io/badge/JDK-17%2B-orange.svg"/>
+    <!-- PRs Welcome -->
+    <a href="#-how-to-contribute">
+        <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/>
+    </a>
+    <!-- Say Thanks! -->
+    <a href="https://saythanks.io/to/wajahatkarim3">
+        <img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg"/>
+    </a>
+</div>
+
+<div align="center">
+  <sub>Built with ❤︎ by
+  <a href="https://twitter.com/WajahatKarim">Wajahat Karim</a> and
+  <a href="https://github.com/wajahatkarim3/play-data-safety-skill/graphs/contributors">
+    contributors
+  </a>
+</div>
+<br/>
+<br/>
+
+It scans your Android project, asks you only what code can't reveal, and writes the CSV that
+Play Console imports in one click.
 
 - **Free and open source** (MIT). No account, no API key, no paid tool.
 - **No changes to your app.** Nothing to add to Gradle. It runs your project's own Gradle from outside.
@@ -13,14 +43,18 @@ that Play Console imports in one click.
 > ⚠️ The output is a **draft for you to confirm**, not legal advice. Static analysis can't know what
 > your server stores, whether a field is optional, or how deletion works. That's why it asks.
 
-## Why
+<br/>
+
+## 🤔 Why
 
 Every app on Google Play must complete the Data safety form: 13 categories, 38 data types, and seven
 questions for each type you declare. The answers have to cover what your code **and every library
 it pulls in** collect. Most developers fill it in once, from memory, and never touch it again,
 until a new SDK makes it wrong and Play rejects an update.
 
-## Install
+<br/>
+
+## 💻 Installation
 
 Clone once, then install into your Android project (or `--global` for all projects):
 
@@ -41,7 +75,9 @@ cd your-android-app
 | OpenCode | `.opencode/skills/` | `/data-safety` |
 | Antigravity | `.agents/skills/` | `/data-safety` workflow |
 
-## Use
+<br/>
+
+## ❓ Usage
 
 In your Android project, ask your agent:
 
@@ -52,7 +88,8 @@ or run `/data-safety`. The agent will:
 1. **Scan** the project: every library (including transitive ones, via `./gradlew dependencies`),
    every permission in your manifests, and code that touches location, contacts, camera, audio,
    files, device IDs or the network.
-2. **Match** libraries against the SDK table below and show what each one collects, with sources.
+2. **Match** libraries against the SDK table below, check each one is actually switched on, and show
+   what it collects, with sources.
 3. **Ask** only what it can't know: does this permission's data leave the device? What does your
    backend receive? Can users opt out of analytics? Where do they request deletion?
 4. **Write** `play-data-safety/play_data_safety.md` (readable answers) and
@@ -84,7 +121,9 @@ java $SKILL/scripts/Scan.java . --skill-dir $SKILL --check play-data-safety/play
 
 Exit code `4` means something is undeclared.
 
-## SDKs covered
+<br/>
+
+## 📦 SDKs Covered
 
 <!-- SDK-TABLE:START -->
 38 SDKs.
@@ -134,24 +173,61 @@ Exit code `4` means something is undeclared.
 A library that isn't listed is reported as **unknown** and the agent helps you check its docs.
 Please contribute the entry back.
 
-## Contributing an SDK
+<br/>
 
-Add `skills/play-data-safety/sdks/<id>.json` following [`sdks/SCHEMA.md`](skills/play-data-safety/sdks/SCHEMA.md).
-Every data type needs a `sourceUrl` from the vendor's own documentation and a `checked` date.
-PRs that update a stale entry are just as welcome as new ones.
+## 🚀 Ship the Rest of Your Android App with NowKit
 
-## Want the rest of the Play release done for you?
+<a href="https://kit.shipkaro.dev"><img src="docs/nowkit-cover.png" alt="NowKit: Ship your Android app. Without Android Studio." width="100%"/></a>
 
-This skill comes from [**NowKit**](https://kit.shipkaro.dev), a kit for shipping Android apps with AI
-agents. It does everything around this too: privacy policy and terms generated from your code, a
-hosted landing page, signing, screenshots, store listing, and a step-by-step guide through every
-Play Console screen to production.
+This skill comes from [**NowKit**](https://kit.shipkaro.dev), a production-ready Kotlin + Compose
+starter kit driven by AI-agent commands. It does everything around the Data safety form too: auth,
+payments and analytics setup, a privacy policy and terms generated from your code, a hosted landing
+page, signing, screenshots, store listing, and a step-by-step guide through every Play Console screen
+to production.
 
-## Author
+👉 **[kit.shipkaro.dev](https://kit.shipkaro.dev)**
 
-[Wajahat Karim](https://github.com/wajahatkarim3), Google Developer Expert for Android.
+<br/>
 
-## License
+## 👨 Developed By
 
-MIT. `reference/play-data-safety-template.csv` is Google Play Console's sample Data safety import
-file, included so the CSV matches Play's schema.
+<a href="https://twitter.com/WajahatKarim" target="_blank">
+  <img src="https://avatars.githubusercontent.com/u/8867121?v=4" width="70" align="left">
+</a>
+
+**Wajahat Karim**, Google Developer Expert for Android
+
+[![Twitter](https://img.shields.io/badge/-twitter-grey?logo=twitter)](https://twitter.com/WajahatKarim)
+[![Web](https://img.shields.io/badge/-web-grey?logo=appveyor)](https://wajahatkarim.com/)
+[![Medium](https://img.shields.io/badge/-medium-grey?logo=medium)](https://medium.com/@wajahatkarim3)
+[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/wajahatkarim/)
+
+<br/>
+
+## 👍 How to Contribute
+
+The most valuable contribution is an SDK entry. Add `skills/play-data-safety/sdks/<id>.json`
+following [`sdks/SCHEMA.md`](skills/play-data-safety/sdks/SCHEMA.md). Every data type needs a
+`sourceUrl` from the vendor's own documentation and a `checked` date. PRs that update a stale entry
+are just as welcome as new ones. Check your entry with:
+
+```bash
+java tools/ValidateSdks.java
+```
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
+
+<br/>
+
+## 📃 License
+
+    Copyright 2026 Wajahat Karim
+
+    Licensed under the MIT License. See the LICENSE file for details.
+
+`skills/play-data-safety/reference/play-data-safety-template.csv` is Google Play Console's sample
+Data safety import file, included so the generated CSV matches Play's schema.
