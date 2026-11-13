@@ -123,7 +123,33 @@ Exit code `4` means something is undeclared.
 
 <br/>
 
+## 🚀 Ship the Rest of Your Android App with NowKit
+
+<a href="https://kit.shipkaro.dev"><img src="docs/nowkit-cover.png" alt="NowKit: Ship your Android app. Without Android Studio." width="100%"/></a>
+
+This skill comes from [**NowKit**](https://kit.shipkaro.dev), a production-ready Kotlin + Compose
+starter kit driven by AI-agent commands. It does everything around the Data safety form too: auth,
+payments and analytics setup, a privacy policy and terms generated from your code, a hosted landing
+page, signing, screenshots, store listing, and a step-by-step guide through every Play Console screen
+to production.
+
+👉 **[kit.shipkaro.dev](https://kit.shipkaro.dev)**
+
+<br/>
+
 ## 📦 SDKs Covered
+
+38 SDKs, each mapped to Play's data types with the vendor's own source:
+
+- **Google:** Firebase (Analytics, Crashlytics, Performance, Messaging, Auth, Firestore, Remote Config), AdMob, Play Billing, Sign in with Google, Maps, Places, ML Kit
+- **Analytics & monitoring:** PostHog, Sentry, Amplitude, Mixpanel, Segment, BugSnag, Datadog, Luciq (Instabug)
+- **Engagement:** Braze, CleverTap, Airship, OneSignal, Intercom
+- **Ads & attribution:** Meta (Facebook SDK, Audience Network), Unity Ads, AppLovin, ironSource, AppsFlyer, Adjust, Branch
+- **Payments & backend:** RevenueCat, Adapty, Stripe, Supabase
+
+<details>
+<summary><b>See every SDK with its source, role and confidence</b></summary>
+<br/>
 
 <!-- SDK-TABLE:START -->
 38 SDKs.
@@ -170,22 +196,11 @@ Exit code `4` means something is undeclared.
 | [Unity LevelPlay (ironSource Mediation)](https://docs.unity.com/grow/levelplay/platform/legal-resources/google-data-safety-questionnaire) | Unity Technologies (ironSource) | Shares data | high | 2026-11-13 |
 <!-- SDK-TABLE:END -->
 
+</details>
+
+
 A library that isn't listed is reported as **unknown** and the agent helps you check its docs.
 Please contribute the entry back.
-
-<br/>
-
-## 🚀 Ship the Rest of Your Android App with NowKit
-
-<a href="https://kit.shipkaro.dev"><img src="docs/nowkit-cover.png" alt="NowKit: Ship your Android app. Without Android Studio." width="100%"/></a>
-
-This skill comes from [**NowKit**](https://kit.shipkaro.dev), a production-ready Kotlin + Compose
-starter kit driven by AI-agent commands. It does everything around the Data safety form too: auth,
-payments and analytics setup, a privacy policy and terms generated from your code, a hosted landing
-page, signing, screenshots, store listing, and a step-by-step guide through every Play Console screen
-to production.
-
-👉 **[kit.shipkaro.dev](https://kit.shipkaro.dev)**
 
 <br/>
 
